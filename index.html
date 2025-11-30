@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+    <link rel="stylesheet" href="./Scss/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container" id="container">
+        <header>
+            <h1 id="heading"></h1>
+            <div class="search">
+                <input type="text" placeholder="Search your task here...">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                </button>
+            </div>
+            <span>
+                <button>
+                    <img src="./Icon/Notificartion.svg" alt="">
+                </button>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
+                        <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                    </svg>
+                </button>
+            </span>
+            <div class="dates">
+                <span id="day"></span>
+                <p id="date"></p>
+            </div>
+        </header>
+
+        <main>
+            <section class="sidNav">
+                <div class="sidbar">
+                    <section class="sidTop">
+                        <div class="userNav">
+                            <span id="userImg">
+                                <img src="./Images/Ellipse 1.png" alt="">
+                            </span>
+                            <span id="userNames">
+                                <h4 id="userLastName"></h4>
+                                <h4 id="userFirstName"></h4>
+                            </span>
+                            <p id="userNavEmail"></p>
+                        </div>
+                        <nav>
+                            <span id="dashboard">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-layout-board"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 3h5a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1v-2a2 2 0 0 1 2 -2" /><path d="M14 3h5a2 2 0 0 1 2 2v8a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1v-9a1 1 0 0 1 1 -1" /><path d="M14 16h6a1 1 0 0 1 1 1v2a2 2 0 0 1 -2 2h-5a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1" /><path d="M4 10h6a1 1 0 0 1 1 1v9a1 1 0 0 1 -1 1h-5a2 2 0 0 1 -2 -2v-8a1 1 0 0 1 1 -1" /></svg>
+                                <a href="#">Dashboard</a>
+                            </span>
+                            <span id="vitalTask">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-exclamation-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5 11.66a1 1 0 0 0 -1 1v.01a1 1 0 0 0 2 0v-.01a1 1 0 0 0 -1 -1m0 -7a1 1 0 0 0 -1 1v4a1 1 0 0 0 2 0v-4a1 1 0 0 0 -1 -1" /></svg>
+                                <a href="#">Vital Task</a>
+                            </span>
+                            <span id="myTask">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-notebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" /><path d="M13 8l2 0" /><path d="M13 12l2 0" /></svg>
+                                <a href="#">My Task</a>
+                            </span>
+                            <span id="taskMain">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3.5 5.5l1.5 1.5l2.5 -2.5" /><path d="M3.5 11.5l1.5 1.5l2.5 -2.5" /><path d="M3.5 17.5l1.5 1.5l2.5 -2.5" /><path d="M11 6l9 0" /><path d="M11 12l9 0" /><path d="M11 18l9 0" /></svg>
+                                <a href="#">Task Categories</a>
+                            </span>
+                            <span id="setting">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-settings-pause"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M13.004 20.69c-.905 .632 -2.363 .296 -2.679 -1.007a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.314 .319 1.645 1.798 .992 2.701" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17 17v5" /><path d="M21 17v5" /></svg>
+                                <a href="#">Settings</a>
+                            </span>
+                        </nav>
+                    </section>
+
+                    <span id="logout">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-logout"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" /><path d="M9 12h12l-3 -3" /><path d="M18 15l3 -3" /></svg>
+                        <a href="">Logout</a>
+                    </span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="register" id="register">
+        <span>
+            <div>
+                <div class="l"></div>
+                <div class="r">
+                    <h1>Sign Up</h1>
+
+                    <span class="input-block">
+                        <div class="input-row">
+                            <img src="./Images/user1.svg" alt="">
+                            <input id="firstName" type="text" placeholder="Enter First Name">
+                        </div>
+                        <label id="firstNameNotif"></label>
+                    </span>
+
+                    <span class="input-block">
+                        <div class="input-row">
+                            <img src="./Images/user2.svg" alt="">
+                            <input id="lastName" type="text" placeholder="Enter Last Name">
+                        </div>
+                        <label id="lastNameNotif"></label>
+                    </span>
+
+                    <span class="input-block">
+                        <div class="input-row">
+                            <img src="./Images/user.svg" alt="">
+                            <input id="username" type="text" placeholder="Enter Username">
+                        </div>
+                        <label id="usernameNotif"></label>
+                    </span>
+
+                    <span class="input-block">
+                        <div class="input-row">
+                            <img src="./Images/email.svg" alt="">
+                            <input id="email" type="email" placeholder="Enter Email">
+                        </div>
+                        <label id="emailNotif"></label>
+                    </span>
+
+                    <span class="input-block">
+                        <div class="input-row">
+                            <img src="./Images/lock1.svg" alt="">
+                            <input id="password" type="password" placeholder="Enter Password">
+                        </div>
+                        <label id="passwordNotif"></label>
+                    </span>
+
+                    <span class="input-block">
+                        <div class="input-row">
+                            <img src="./Images/lock2.svg" alt="">
+                            <input id="confirmPassword" type="password" placeholder="Confirm Password">
+                        </div>
+                        <label id="confirmPasswordNotif"></label>
+                    </span>
+
+                    <label class="terms">
+                        <input id="agree" type="checkbox">
+                        <span>I agree to all terms</span>
+                    </label>
+                    <label id="agreeNotif"></label>
+
+                    <button id="addUser">Register</button>
+
+                    <span class="switch-login">Already have an account? 
+                        <a href="#" id="SignInMenu">Sign In</a>
+                    </span>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <div class="login" id="login">
+        <span>
+            <div>
+                <div class="l">
+                    <div>
+                        <h1>Sign In</h1>
+                        <span class="inputValue">
+                            <div>
+                                <img src="./Images/user.svg" alt="">
+                                <input id="loginUsername" type="text" placeholder="Enter Username">
+                            </div>
+                            <label for="loginUsername" id="logUsernameNotif"></label>
+                        </span>
+
+                        <span class="inputValue">
+                            <div>
+                                <img src="./Images/lock1.svg" alt="">
+                                <input id="loginPassword" type="password" placeholder="Enter Password">
+                            </div>
+                            <label for="loginPassword" id="logPassNotif"></label>
+                        </span>
+
+                        <label class="terms">
+                            <input id="loginAgree" type="checkbox">
+                            <span>Remember Me</span>
+                        </label>
+                        <label id="loginAgreeChecked" for="agree"></label>
+
+                        <button id="loginBtn">Login</button>
+                        <span class="regMenu">
+                            Don't have an account?
+                            <a href="#" id="SignUpMenu">Sign Up</a>
+                        </span>
+                    </div>
+
+                    <span class="appLogin">
+                        <div>Or, Login with 
+                            <span>
+                                <img src="../Images/facebook.svg" alt="">
+                                <img src="../Images/Google.svg" alt="">
+                                <img src="../Images/Tweter.svg" alt="">
+                            </span>
+                        </div>
+                        <div>
+                            Don’t have an account? <a href="">Create One</a>
+                        </div>
+                    </span>
+                </div>
+                <div class="r"></div>
+            </div>
+        </span>
+    </div>
+</body>
+<script src="./JS Assents/regSystem.js"></script>
+<script src="./JS Assents/header.js"></script>
+<script src="./JS Assents/sidBar.js"></script>
+</html>

@@ -1,0 +1,519 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.register {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+}
+.register::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../Images/signBg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -2;
+}
+.register::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #FF6767;
+  opacity: 0.8;
+  z-index: -1;
+}
+.register > span {
+  width: 100%;
+  max-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.register > span > div {
+  width: 1240px;
+  margin: 0 80px 0;
+  max-height: 670px;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 5;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+}
+.register > span > div > div {
+  display: flex;
+}
+.register > span > div > div.l {
+  width: 50%;
+  background-image: url("../Images/right.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+.register > span > div > div.r {
+  max-width: 50%;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.register > span > div > div.r h1 {
+  font-size: 34px;
+  margin-bottom: 0px;
+  font-weight: 700;
+}
+.register > span > div > div.r .input-block {
+  margin-top: 10px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.register > span > div > div.r .input-block > div {
+  max-width: 100%;
+  height: 45px;
+  border: 1px solid #c8c8c8;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 15px;
+  transition: all 0.3s;
+}
+.register > span > div > div.r .input-block > div:hover {
+  border-color: #000;
+}
+.register > span > div > div.r .input-block > div:focus-within {
+  border-color: #000;
+}
+.register > span > div > div.r .input-block > div img {
+  width: 24px;
+  height: 24px;
+}
+.register > span > div > div.r .input-block > div input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  display: block;
+}
+.register > span > div > div.r .input-block label {
+  display: block;
+  font-size: 14px;
+  color: red;
+  margin-top: 2px;
+}
+.register > span > div > div.r .terms {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 7px;
+  font-size: 16px;
+}
+.register > span > div > div.r .terms input {
+  width: 20px;
+  height: 20px;
+}
+.register > span > div > div.r .terms span {
+  width: auto;
+}
+.register > span > div > div.r #agreeNotif {
+  display: block;
+  font-size: 14px;
+  color: red;
+  margin-top: 2px;
+}
+.register > span > div > div.r button {
+  margin-top: 10px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #F8F9FB;
+  border-radius: 5px;
+  background-color: #FF9090;
+  padding: 10px 30px;
+  border: none;
+  width: 150px;
+  flex: 1;
+}
+.register > span > div > div.r .switch-login {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  gap: 10px;
+  justify-content: start;
+}
+
+.login {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: none;
+}
+.login::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../Images/signBg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -2;
+}
+.login::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #FF6767;
+  opacity: 0.8;
+  z-index: -1;
+}
+.login > span {
+  width: 100%;
+  max-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login > span > div {
+  width: 1240px;
+  margin: 0 80px 0;
+  min-height: 670px;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 5;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+}
+.login > span > div > div {
+  display: flex;
+}
+.login > span > div > div.r {
+  width: 50%;
+  background-image: url("../Images/left.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+.login > span > div > div.l {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 50%;
+  padding: 40px 50px;
+  flex: 1;
+}
+.login > span > div > div.l > div {
+  display: flex;
+  flex-direction: column;
+}
+.login > span > div > div.l > div h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.login > span > div > div.l > div .inputValue {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 15px;
+  transition: all 0.3s;
+}
+.login > span > div > div.l > div .inputValue > div {
+  display: flex;
+  gap: 15px;
+  border: 1px solid #c8c8c8;
+  border-radius: 10px;
+  align-items: center;
+  max-width: 100%;
+  height: 60px;
+  padding: 0 20px;
+}
+.login > span > div > div.l > div .inputValue > div:hover {
+  border-color: #000;
+}
+.login > span > div > div.l > div .inputValue > div:focus-within {
+  border-color: #000;
+}
+.login > span > div > div.l > div .inputValue > div img {
+  width: 24px;
+  height: 24px;
+}
+.login > span > div > div.l > div .inputValue > div input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+}
+.login > span > div > div.l > div .inputValue label {
+  color: red;
+  font-size: 14px;
+  mask-type: 3px;
+}
+.login > span > div > div.l > div .terms {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.login > span > div > div.l > div .terms input {
+  width: 20px;
+  height: 20px;
+}
+.login > span > div > div.l > div .terms span {
+  width: auto;
+  color: black;
+}
+.login > span > div > div.l > div > label {
+  color: red;
+  font-size: 14px;
+  margin-top: 3px;
+}
+.login > span > div > div.l > div button {
+  margin-top: 15px;
+  max-height: 60px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #F8F9FB;
+  border-radius: 5px;
+  background-color: #FF9090;
+  padding: 20px 30px;
+  border: none;
+  width: 150px;
+  flex: 1;
+}
+.login > span > div > div.l > div .regMenu {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  gap: 10px;
+  justify-content: start;
+}
+.login > span > div > div.l .appLogin {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.login > span > div > div.l .appLogin > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.login > span > div > div.l .appLogin > div > span {
+  display: flex;
+  gap: 12px;
+}
+
+.container header h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+.container header .search {
+  width: 55%;
+  background-color: #fff;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 15px;
+  border-radius: 8px;
+  height: 37px;
+}
+.container header .search input {
+  width: 90%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+.container header .search button {
+  width: 40px;
+  height: 100%;
+  border: none;
+  background-color: #FF6767;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.container header .search button svg {
+  color: white;
+}
+.container header > span {
+  display: flex;
+  gap: 15px;
+}
+.container header > span button {
+  width: 35px;
+  height: 35px;
+  background-color: #FF6767;
+  border: none;
+  color: white;
+  border-radius: 8px;
+}
+.container header .dates {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.container header .dates span {
+  font-size: 18px;
+  font-weight: 500;
+}
+.container header .dates p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #3ABEFF;
+}
+
+.container main .sidNav {
+  width: 310px;
+  display: flex;
+  align-items: flex-end;
+}
+.container main .sidNav .sidbar {
+  width: 100%;
+  min-height: 570px;
+  background-color: #FF6767;
+  padding: 0 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: space-between;
+  border-bottom-right-radius: 12px;
+  border-top-right-radius: 12px;
+  box-shadow: 6px 4px 12px 8px rgba(0, 0, 0, 0.07);
+}
+.container main .sidNav .sidbar .sidTop {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.container main .sidNav .sidbar .sidTop .userNav {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+  align-items: center;
+  gap: 3px;
+  margin-top: -50px;
+}
+.container main .sidNav .sidbar .sidTop .userNav #userImg {
+  border: 1px solid white;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container main .sidNav .sidbar .sidTop .userNav #userNames {
+  display: flex;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.container main .sidNav .sidbar .sidTop .userNav p {
+  font-size: 12px;
+  font-weight: 400;
+}
+.container main .sidNav .sidbar .sidTop nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 6px;
+}
+.container main .sidNav .sidbar .sidTop nav span {
+  padding: 17px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+}
+.container main .sidNav .sidbar .sidTop nav span a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+.container main .sidNav .sidbar .sidTop nav span svg {
+  color: white;
+}
+.container main .sidNav .sidbar .sidTop nav span.activeNav {
+  background-color: #fff;
+}
+.container main .sidNav .sidbar .sidTop nav span.activeNav a {
+  color: #FF6767;
+}
+.container main .sidNav .sidbar .sidTop nav span.activeNav svg {
+  color: #FF6767;
+}
+.container main .sidNav .sidbar .sidTop nav span:hover {
+  transition: 0.2s;
+  border: 2px solid white;
+}
+.container main .sidNav .sidbar > span {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 17px;
+  cursor: pointer;
+  border-radius: 14px;
+}
+.container main .sidNav .sidbar > span a {
+  text-decoration: none;
+  color: white;
+}
+.container main .sidNav .sidbar > span svg {
+  color: white;
+}
+.container main .sidNav .sidbar > span:hover {
+  background-color: #fff;
+  transition: 0.4s;
+}
+.container main .sidNav .sidbar > span:hover a {
+  color: #FF6767;
+}
+.container main .sidNav .sidbar > span:hover svg {
+  color: #FF6767;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+}
+.container header {
+  padding: 37px 72px 24px;
+  background-color: #F8F8F8;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.07);
+  height: 50px;
+}
+.container main {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}/*# sourceMappingURL=main.css.map */

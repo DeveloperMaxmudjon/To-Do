@@ -1,0 +1,134 @@
+.container {
+    main {
+        .sidNav {
+            width: 310px;
+            display: flex;
+            align-items: flex-end;
+            .sidbar {
+                width: 100%;
+                min-height: 570px;
+                background-color: #FF6767;
+                padding: 0 22px 22px;
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+                justify-content: space-between;
+                border-bottom-right-radius: 12px;
+                border-top-right-radius: 12px;
+                box-shadow: 6px 4px 12px 8px rgba(0, 0, 0, 0.07);
+
+                .sidTop {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 18px;
+                    .userNav {
+                        display: flex;
+                        flex-direction: column;
+                        color: white;
+                        text-align: center;
+                        align-items: center;
+                        gap: 3px;
+                        margin-top: -50px;
+
+                        #userImg {
+                            border: 1px solid white;
+                            background-color: #fff;
+                            border-radius: 50%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        #userNames {
+                            display: flex;
+                            gap: 8px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            letter-spacing: 1px;
+                        }
+
+                        p {
+                            font-size: 12px;
+                            font-weight: 400;
+                        }
+                    }
+
+                    nav {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        gap: 6px;
+
+                        span {
+                            padding: 17px;
+                            border-radius: 14px;
+                            display: flex;
+                            align-items: center;
+                            gap: 7px;
+                            cursor: pointer;
+
+                            a {
+                                text-decoration: none;
+                                color: white;
+                                font-size: 16px;
+                                font-weight: 500;
+                            }
+
+                            svg {
+                                color: white;
+                            }
+
+                            &.activeNav {
+                                background-color: #fff;
+                                
+                                a {
+                                    color: #FF6767;
+                                }
+
+                                svg {
+                                    color: #FF6767;
+                                }
+                            }
+
+                            &:hover {
+                                transition: .2s;
+                                border: 2px solid white;
+                            }
+                        }
+                    }
+                }
+
+                > span {
+                    display: flex;
+                    gap: 6px;
+                    align-items: center;
+                    padding: 17px;
+                    cursor: pointer;
+                    border-radius: 14px;
+
+                    a {
+                        text-decoration: none;
+                        color: white;
+                    }
+
+                    svg {
+                        color: white;
+                    }
+
+                    &:hover {
+                        background-color: #fff;
+                        transition: .4s;
+
+                        a {
+                            color: #FF6767;
+                        }
+
+                        svg {
+                            color: #FF6767;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
