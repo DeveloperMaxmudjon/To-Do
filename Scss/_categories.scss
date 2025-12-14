@@ -1,0 +1,177 @@
+.container {
+    main {
+        .categMain {
+            width: 100%;
+            height: 480px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+            border: 1px solid #A1A3ABA1;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin: 0 40px 20px;
+            overflow-y: auto;
+
+            > header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                > div {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+
+                    h2 {
+                        font-size: 22px;
+                        font-weight: 600;
+                        color: #000;
+                    }
+
+                    span {
+                        width: 60px;
+                        height: 2px;
+                        background: #F24E1E;
+                        display: block;
+                    }
+                }
+
+                a {
+                    font-size: 14px;
+                    color: #000;
+                    text-decoration: underline;
+                }
+            }
+
+            > button {
+                width: fit-content;
+                background: #F26430;
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                padding: 10px 18px;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+            }
+
+            > section {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+
+                > header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    > div {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4px;
+
+                        h3 {
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: #000;
+                        }
+
+                        span {
+                            width: 40px;
+                            height: 2px;
+                            background: #F24E1E;
+                            display: block;
+                        }
+                    }
+
+                    > button {
+                        background: none;
+                        border: none;
+                        color: #A1A3AB;
+                        font-size: 14px;
+                        cursor: pointer;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                    }
+                }
+
+                table {
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 0;
+                    border: 1px solid #A1A3ABA1;
+                    border-radius: 14px;
+                    overflow: hidden;
+
+                    thead {
+                        background: #F8FAFD;
+
+                        th {
+                            padding: 14px;
+                            font-size: 14px;
+                            font-weight: 600;
+                            text-align: center;
+                            border-bottom: 1px solid #A1A3ABA1;
+
+                            &:not(:last-child) {
+                                border-right: 1px solid #A1A3ABA1;
+                            }
+                        }
+                    }
+
+                    tbody {
+                        tr {
+                            td {
+                                padding: 14px;
+                                font-size: 14px;
+                                text-align: center;
+                                vertical-align: middle;
+
+                                &:not(:last-child) {
+                                    border-right: 1px solid #A1A3ABA1;
+                                }
+                            }
+
+                            &:not(:last-child) td {
+                                border-bottom: 1px solid #A1A3ABA1;
+                            }
+
+                            td:last-child {
+                                display: flex;
+                                justify-content: center;
+                                gap: 12px;
+
+                                button {
+                                    border: none;
+                                    border-radius: 8px;
+                                    padding: 8px 16px;
+                                    font-size: 14px;
+                                    color: #fff;
+                                    cursor: pointer;
+                                }
+
+                                button[data-action="edit"] {
+                                    background: #F26430;
+                                }
+
+                                button[data-action="delete"] {
+                                    background: #F26430;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            hr {
+                border: none;
+                height: 1px;
+                width: 100%;
+                background: #E5E7EB;
+            }
+        }
+    }
+}

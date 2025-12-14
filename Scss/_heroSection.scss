@@ -1,0 +1,432 @@
+.container {
+    main {
+        .heroMain {
+            width: 74%;
+            padding: 0px 40px 30px 40px;
+            display: flex; 
+            flex-direction: column;
+            gap: 15px;
+
+            > span {
+                display: flex;
+                justify-content: space-between;
+                height: 10%;
+
+                > div {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .welcText {
+                    gap: 15px;
+                    h1 {
+                        font-size: 36px;
+                        font-weight: 500;
+                    }
+                    p {
+                        font-size: 36px;
+                    }
+                }
+                .frends {
+                    display: flex;
+                    gap: 5px;
+                    > span {
+                        img {
+                            width: 40px;
+                            height:40px;
+                            border-radius: 7px;
+                        }
+                    }
+
+                    button {
+                        display: flex;
+                        align-items: center;
+                        gap: 4px;
+                        border: 2px solid #FF6767;
+                        color: #FF6767;
+                        padding: 7px 20px;
+                        margin-left: 10px;
+                        background-color: transparent;
+                        border-radius: 15px;
+                    }
+                }
+            }
+
+            > div {
+                border: 1px solid #A1A3ABA1;
+                height: 90%;
+                box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                gap: 16px;
+                padding: 20px 25px;
+
+                > div {
+                    border-radius: 14px;
+                    box-shadow:
+                        0px 5px 11px rgba(0, 0, 0, 0.04),
+                        0px 19px 19px rgba(0, 0, 0, 0.03),
+                        0px 44px 26px rgba(0, 0, 0, 0.02),
+                        0px 77px 31px rgba(0, 0, 0, 0.01),
+                        0px 121px 34px rgba(0, 0, 0, 0.00);
+                }
+
+                .tasks {
+                        grid-column: 0 / span 1;
+                        grid-row: 1 / span 2;
+                        display: grid;
+                        grid-template-rows: 2fr 1px 1.5fr;
+                        grid-template-columns: 1fr;
+                        padding: 12px 0;
+                        row-gap: 17px;
+
+                    > div  {
+                        margin: 0 15px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 7px;
+
+                        > span {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 5px;
+                            > div {
+                                display: flex;
+                                justify-content: space-between;
+
+                                div {
+                                    display: flex;
+                                    gap: 9px;
+                                    align-items: center;
+
+                                    h4 {
+                                        color: #FF6767;
+                                        font-size: 15px;
+                                        font-weight: 500;
+                                    }
+
+                                    p {
+                                        font-size: 12px;
+                                        font-weight: 400;
+                                        color: #A1A3AB;
+                                    }
+
+                                    svg {
+                                        color: #A1A3AB;
+                                    }
+                                }
+                                .addTask {
+                                    cursor: pointer;
+                                    svg {
+                                        color: #FF6767;
+                                    }
+                                    display: flex;
+                                    
+                                }
+                                button {
+                                    border: none;
+                                    background-color: transparent;
+                                    align-items: center;
+                                    gap: 10px;
+                                }
+                            }
+
+                            div {
+                                > span {
+                                    font-size: 12px;
+                                    column-count: 2;
+                                    column-rule: 1px solid #A1A3AB;
+                                    color: #A1A3AB;
+
+                                    #today-date {
+                                        color: black;
+                                    }
+                                }
+                            }
+                        }
+
+                        #taskList {
+                        max-height: 190px;
+                        overflow-y: auto;
+
+                        > div {
+                            max-width: 100%;
+                            height: 150px;
+                            border-radius: 14px;
+                            border: 1px solid #A1A3ABA1;
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 10px;
+
+                            .circle {
+                                color: #0225FF;
+                            }
+
+                            > span {
+                                color: #A1A3AB;
+                                width: 6%;
+                            }
+
+                            > div {
+                                width: 88%;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+                                padding: 6px 0;
+
+                                h3 {
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                }
+
+                                > span {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    gap: 10px;
+
+                                    p {
+                                        color: #747474;
+                                    }
+                                }
+
+                                div {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    span {
+                                        font-size: 10px;
+                                        font-weight: 400;
+                                        display: flex;
+                                        gap: 2px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    }
+
+                    #taskListTwo {
+                        max-width: 100%;
+                        max-height: 175px;
+                        overflow: hidden;
+                        > div {
+                            max-width: 100%;
+                            height: 150px;
+                            border-radius: 14px;
+                            border: 1px solid #A1A3ABA1;
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 10px;
+
+                            .circle {
+                                color: #0225FF;
+                            }
+
+                            > span {
+                                color: #A1A3AB;
+                                width: 6%;
+                            }
+
+
+                            > div {
+                                width: 88%;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+                                padding: 6px 0;
+
+                                h3 {
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                }
+
+                                > span {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    gap: 10px;
+
+                                    p {
+                                        color: #747474;
+                                    }
+                                    
+                                }
+
+                                div {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    span {
+                                        font-size: 10px;
+                                        font-weight: 400;
+                                        display: flex;
+                                        gap: 2px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .status {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    padding: 25px;
+
+                    > span {
+                        display: flex;
+                        gap: 10px;
+
+                        svg {
+                            color: #A1A3AB;
+                        }
+                        p {
+                            font-size: 15px;
+                            font-weight: 500;
+                            color: #FF6767;
+                        }
+                    }
+
+                    > div {
+                        display: flex;
+                        justify-content: space-between;
+
+                        > div {
+                            width: 140px;
+                            height: 160px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            > div {
+                                width: 110px;
+                                height: 110px;
+                                border-radius: 50%;
+                                background: conic-gradient(#D9D9D9 0deg 360deg);
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                > span {
+                                    width: 80px;
+                                    height: 80px;
+                                    background: #fff;
+                                    border-radius: 50%;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    font-size: 20px;
+                                    font-weight: 600;
+                                }
+                            }
+
+                            > span {
+                                font-size: 15px;
+                                font-weight: 500;
+                                position: relative;
+
+                                &::after {
+                                    content: "";
+                                    width: 8px;
+                                    height: 8px;
+                                    border-radius: 50%;
+                                    position: absolute;
+                                    top: 27%;
+                                    left: -15px;
+                                }
+                            }
+                        }
+
+                        #completed > span::after { background: #05A301; }
+                        #inProgress > span::after { background: #0225FF; }
+                        #notStarted > span::after { background: #F21E1E; }
+                    }
+                }
+
+                .compelted {
+                    padding: 24px;
+
+                    > div {
+                        height: 240px;
+                        overflow: scroll;
+
+                        > div {
+                            max-width: 100%;
+                            height: 150px;
+                            border-radius: 14px;
+                            border: 1px solid #A1A3ABA1;
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 10px;
+                            margin-bottom: 10px;
+
+                            .circle {
+                                color: #0225FF;
+                            }
+
+                            > span {
+                                color: #A1A3AB;
+                                width: 6%;
+                            }
+
+                            > div {
+                                width: 88%;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+                                padding: 6px 0;
+
+                                h3 {
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                }
+
+                                > span {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    gap: 10px;
+
+                                    p {
+                                        color: #747474;
+                                    }
+                                }
+
+                                div {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    span {
+                                        font-size: 10px;
+                                        font-weight: 400;
+                                        display: flex;
+                                        gap: 2px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    > span {
+                        display: flex;
+                        gap: 12px;
+                        align-items: center;
+                        margin-bottom: 12px;
+
+                        svg {
+                            color: #A1A3AB;
+                        }
+
+                        p {
+                            font-size: 15px;
+                            font-weight: 500;
+                            color: #F24E1E;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}

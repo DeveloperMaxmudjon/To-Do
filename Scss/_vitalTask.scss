@@ -1,0 +1,162 @@
+.container {
+    main {
+        .vitalTask {
+            max-width: 100%;
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            padding: 0px 40px 20px;
+
+            > div {
+                width: 50%;
+                border: 1px solid #A1A3ABA1;
+                border-radius: 16px;
+                padding: 20px 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 22px ;
+
+                > span {
+                    font-size: 16px;
+                    font-weight: 600;
+                    padding: 5px 0;
+                    border-bottom: 2px solid #F24E1E;
+                }
+
+                > div {
+                    max-width: 100%;
+                    height: 150px;
+                    border-radius: 14px;
+                    display: flex;
+                    gap: 15px;
+                    padding: 10px;
+                    border: 1px solid #A1A3ABA1;
+
+                    .circle {
+                        color: #0225FF;
+                    }
+
+                    > span {
+                        color: #A1A3AB;
+                        width: 6%;
+                    }
+
+                    > div {
+                        width: 88%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        padding: 6px 0;
+
+                        h3 {
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
+
+                        > span {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            gap: 10px;
+
+                            p {
+                                color: #747474;
+                            }
+                        }
+
+                        div {
+                            display: flex;
+                            justify-content: space-between;
+                            span {
+                                font-size: 10px;
+                                font-weight: 400;
+                                display: flex;
+                                gap: 2px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .taskInf {
+                max-width: 100%;
+                padding: 15px 19px;
+                > div {
+                    display: flex;
+                    flex-direction: column;
+                    border: none;
+                    height: 100%;
+                    max-width: 100%;
+
+                    > span {
+                        display: flex;;
+                        width: 100%;
+                        gap: 15px;
+
+                        img {
+                            width: 158px;
+                        }
+
+                        div {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+
+                            > span {
+                                display: flex;
+                                gap: 5px;
+                            }
+
+                            h3 {
+                                color: black;
+                            }
+                        }
+                    }
+
+                    > div {
+                        width: 100%;
+                        margin-top: 30px;
+                    }
+
+                    > .taskActions {
+                        display: flex;
+                        gap: 10px;
+                        justify-content: end;
+                        align-items: end;
+                        height: 100%;
+                        margin-top: 30px;
+
+                        button {
+                            width: 36px;
+                            height: 36px;
+                            border-radius: 8px;
+                            background-color: #FF6767;
+
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border: none;
+
+                            svg {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+
+
+#vitalTaskMenu #vitalTaskList .taskItem {
+    transition: background 0.2s ease;
+}
+
+#vitalTaskMenu #vitalTaskList .taskItem.active {
+    background: #A1A3AB2B;
+    box-shadow: 0 0 0 1px #A1A3AB2B;
+}

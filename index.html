@@ -82,6 +82,281 @@
                     </span>
                 </div>
             </section>
+            <section class="heroMain" id="dashboardMenu">
+                <span>
+                    <div class="welcText">
+                        <h1>Welcome back, Sundar</h1>
+                        <p>👋</p>
+                    </div>
+                    <div class="frends">
+                        <span>
+                            <img src="./Images/322f0fe2c52b5ee8ff2972c81a56bce0701e8ebe (1).png" alt="">
+                        </span>
+                        <span>
+                            <img src="./Images/ffae8c8aba595a703cdeb2d613d441aa5ec7fbe3.png" alt="">
+                        </span>
+                        <span>
+                            <img src="./Images/38ec6b93a7d526b48db2e77631d5a51dfecbc1ba.png" alt="">
+                        </span>
+                        <span>
+                            <img src="./Images/e04cfbd9af5694e6e7cf12d73e8b82bb5fe16f7c.png" alt="">
+                        </span>
+
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-users-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M3 21v-2a4 4 0 0 1 4 -4h4c.96 0 1.84 .338 2.53 .901" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M16 19h6" /><path d="M19 16v6" /></svg>
+                            Invite
+                        </button>
+                    </div>
+                </span>
+
+                <div>
+                    <div class="tasks">
+                        <div>
+                            <span>
+                                <div>
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-stats"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" /><path d="M18 14v4h4" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M15 3v4" /><path d="M7 3v4" /><path d="M3 11h16" /></svg>
+                                        <h4>To-Do</h4>
+                                    </div>
+                                    <button class="addTask" id="addTask">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                                        <p>Add task</p>
+                                    </button>
+                                </div>
+                                <div>
+                                    <span>
+                                        <p id="today-date"></p>
+                                        <p>Today</p>
+                                    </span>
+                                </div>
+                            </span>
+
+                            <div id="taskList">
+                                <!-- <div>
+                                    <span class="circle">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                    </span>
+                                    <div>
+                                        <h3>
+                                            Attend Nischal’s Birthday Party
+                                        </h3>
+
+                                        <span>
+                                            <p>Buy gifts on the way and pick up cake from the bakery. (6 PM | Fresh Elements).....</p>
+                                            <img src="./Images/Rectangle 10.png" alt="">
+                                        </span>
+                                        <div>
+                                            <span>Priority</span>
+                                            <span>Status</span>
+                                            <span> Created on: 20/06/2023</span>
+                                        </div>
+                                    </div>
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-logs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 12h.01" /><path d="M4 6h.01" /><path d="M4 18h.01" /><path d="M8 18h2" /><path d="M8 12h2" /><path d="M8 6h2" /><path d="M14 6h6" /><path d="M14 12h6" /><path d="M14 18h6" /></svg>
+                                    </span>
+                                </div> -->
+                            </div>
+                        </div>
+                        <hr>
+                        <div id="taskListTwo">
+                            
+                        </div>
+                    </div>
+                    <div class="status">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="currentColor"
+                                class="icon icon-tabler icons-tabler-filled icon-tabler-chart-donut">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M11.292 2.61c.396 .318 .65 .78 .703 1.286l.005 .104v4a1 1 0 0 1 -.748 .968a3.1 3.1 0 1 0 3.78 3.78a1 1 0 0 1 .968 -.748h3.8a2 2 0 0 1 2 2a1 1 0 0 1 -.026 .226a10 10 0 1 1 -12 -12l.057 -.01l.052 -.01a1.9 1.9 0 0 1 1.409 .404m3.703 -.11l.045 .002l.067 .004l.081 .014l.032 .004l.072 .022l.04 .01a10 10 0 0 1 6.003 5.818l.108 .294a1 1 0 0 1 -.943 1.332h-4.5a1 1 0 0 1 -.76 -.35a8 8 0 0 0 -.89 -.89a1 1 0 0 1 -.35 -.76v-4.5q .001 -.119 .026 -.23l.03 -.102a1 1 0 0 1 .168 -.299l.03 -.033l.039 -.043a1 1 0 0 1 .089 -.08l.051 -.034l.03 -.023l.045 -.025l.052 -.03a1 1 0 0 1 .435 -.101" />
+                            </svg>
+                            <p>Task Status</p>
+                        </span>
+
+                        <div>
+                            <div id="completed">
+                                <div id="completedDB">
+                                    <span id="completedText"></span>
+                                </div>
+                                <span>Completed</span>
+                            </div>
+
+                            <div id="inProgress">
+                                <div id="progressDB">
+                                    <span id="progresText">46%</span>
+                                </div>
+                                <span>In Progress</span>
+                            </div>
+
+                            <div id="notStarted">
+                                <div id="stratedDB">
+                                    <span id="stratedText">84%</span>
+                                </div>
+                                <span>Not Started</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compelted">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3.5 5.5l1.5 1.5l2.5 -2.5" /><path d="M3.5 11.5l1.5 1.5l2.5 -2.5" /><path d="M3.5 17.5l1.5 1.5l2.5 -2.5" /><path d="M11 6l9 0" /><path d="M11 12l9 0" /><path d="M11 18l9 0" /></svg>
+                            <p>Completed Task</p>
+                        </span>
+                        <div id="compeltedList">
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="vitalTask" id="vitalTaskMenu">
+                <div id="vitalTaskList">
+                    <span>
+                        Vital Tasks
+                    </span>
+                </div>
+                <div class="taskInf">
+                    <!-- <div class="taskItem" id="task-001">
+                        <span>
+                            <img src="./Images/Rectangle 10 (2).png" alt="">
+                            <div>
+                                <h3>Habits</h3>
+                                <span>Priority : <p style="color:#4CAF50;">High</p></span>
+                                <span>Status: <p style="color:#FF9800;">In Progress</p></span>
+                                <span>Created on: 06 Dec 2025</span>
+                            </div>
+                        </span>
+                        <div>
+
+                            <span>
+                                <p>Complete UI/UX redesign for the new product launch, including responsive versions.</p>
+                            </span>
+                        </div>
+                    </div> -->
+                </div>
+            </section>
+
+            <section class="myTask" id="myTaskMenu">
+                <div id="myTaskList">
+                    <span>
+                        My Tasks
+                    </span>
+                </div>
+                <div class="myTaskInf">
+
+                </div>
+            </section>
+
+            <section class="categMain" id="categMain">
+                <header>
+                    <div>
+                        <h2>Task Categories</h2>
+                        <span></span>
+                    </div>
+                    <a href="#" id="categBack">Go Back</a>
+                </header>
+
+                <button type="button" id="addCategoryBtn">Add Category</button>
+
+                <section aria-label="Task Status">
+                    <header>
+                        <div>
+                            <h3>Task Status</h3>
+                            <span></span>
+                        </div>
+                        <button type="button" id="addStatusBtn">+ Add Task Status</button>
+                    </header>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>SN</th>
+                                <th>Task Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Completed</td>
+                                <td>
+                                    <button type="button" data-action="edit">Edit</button>
+                                    <button type="button" data-action="delete">Delete</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>In Progress</td>
+                                <td>
+                                    <button type="button" data-action="edit">Edit</button>
+                                    <button type="button" data-action="delete">Delete</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td>Not Started</td>
+                                <td>
+                                    <button type="button" data-action="edit">Edit</button>
+                                    <button type="button" data-action="delete">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <hr>
+
+                <section aria-label="Task Priority">
+                    <header>
+                        <div>
+                            <h3>Task Priority</h3>
+                            <span></span>
+                        </div>
+                        <button type="button" id="addPriorityBtn">+ Add New Priority</button>
+                    </header>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>SN</th>
+                                <th>Task Priority</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Extreme</td>
+                                <td>
+                                    <button type="button" data-action="edit">Edit</button>
+                                    <button type="button" data-action="delete">Delete</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>Moderate</td>
+                                <td>
+                                    <button type="button" data-action="edit">Edit</button>
+                                    <button type="button" data-action="delete">Delete</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td>Low</td>
+                                <td>
+                                    <button type="button" data-action="edit">Edit</button>
+                                    <button type="button" data-action="delete">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </section>
         </main>
     </div>
 
@@ -208,8 +483,74 @@
             </div>
         </span>
     </div>
+
+    <div class="creatingTaskMain" id="taskMenu">
+        <div>
+            <span>
+                <h1>Add New Task</h1>
+                <a href="#" id="removeTaskMenu">Go Back</a>
+            </span>
+
+            <div>
+                <span>
+                    <label for="title">Title</label>
+                    <input type="text" id="title">
+                    <p id="titleNotif"></p>
+                </span>
+                <span>
+                    <label for="date">Date</label>
+                    <input type="date" id="dateGet">
+                    <p id="dateNotif"></p>
+                </span>
+                <div class="taskPriority">
+                    <h1>Priority</h1>
+                    <ul>
+                        <li id="extrime">Extreme <input type="checkbox"></li>
+                        <li id="modern">Moderate <input type="checkbox"></li>
+                        <li id="low">Low <input type="checkbox"></li>
+                    </ul>
+                </div>
+                <div class="taskStatus">
+                    <h1>Status</h1>
+                    <ul>
+                        <li id="startValue">Not Started <input type="checkbox"></li>
+                        <li id="ProgresVolue">In Progress <input type="checkbox"></li>
+                        <li id="lowVolue">Completed <input type="checkbox"></li>
+                    </ul>
+                </div>
+
+                <div class="teskDesc">
+                    <span class="taskValue">
+                        <h1>Task Description</h1>
+                        <textarea name="" id="descGet"></textarea>
+                        <p id="descNotif"></p>
+                    </span>
+                    <span class="taskImg">
+                        <h1>Upload Image</h1>
+                        <div>
+                            <span>
+                                <img src="Images/Rectangle 10.png" alt="">
+                            </span>
+                            <span>
+                                <img src="Images/Rectangle 10 (2).png" alt="">
+                            </span>
+                            <span>
+                                <img src="Images/Rectangle 10 (3).png" alt="">
+                            </span>
+                            <span>
+                                <img src="Images/Rectangle 10 (1).png" alt="">
+                            </span>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+            <button id="createTaskBtn">Done</button>
+        </div>
+    </div>
 </body>
 <script src="./JS Assents/regSystem.js"></script>
 <script src="./JS Assents/header.js"></script>
 <script src="./JS Assents/sidBar.js"></script>
+<script src="./JS Assents/createTask.js"></script>
 </html>

@@ -1,14 +1,15 @@
 .container {
     main {
         .sidNav {
-            width: 310px;
+            min-width: 22%;
+            max-height: 100%;
             display: flex;
             align-items: flex-end;
             .sidbar {
                 width: 100%;
-                min-height: 570px;
+                min-height: 100%;
                 background-color: #FF6767;
-                padding: 0 22px 22px;
+                padding: 0 22px 0px;
                 display: flex;
                 flex-direction: column;
                 gap: 18px;
@@ -102,6 +103,7 @@
                     display: flex;
                     gap: 6px;
                     align-items: center;
+                    margin-bottom: 20px;
                     padding: 17px;
                     cursor: pointer;
                     border-radius: 14px;

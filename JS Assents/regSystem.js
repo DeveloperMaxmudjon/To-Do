@@ -26,9 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const signInMenu = document.getElementById("SignInMenu");
     const signUpMenu = document.getElementById("SignUpMenu");
 
-    registerBlock.style.display = "flex";
     loginBlock.style.display = "none";
-    mainContainer.style.display = "none";
+    registerBlock.style.display = "none"
+    mainContainer.style.display = "flex";
+
+    // registerBlock.style.display = "flex";
+    // loginBlock.style.display = "none";
+    // mainContainer.style.display = "none";
 
     if (signInMenu && registerBlock && loginBlock) {
         signInMenu.addEventListener("click", function (e) {

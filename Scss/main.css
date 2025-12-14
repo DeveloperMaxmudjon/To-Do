@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -386,15 +387,16 @@ button {
 }
 
 .container main .sidNav {
-  width: 310px;
+  min-width: 22%;
+  max-height: 100%;
   display: flex;
   align-items: flex-end;
 }
 .container main .sidNav .sidbar {
   width: 100%;
-  min-height: 570px;
+  min-height: 100%;
   background-color: #FF6767;
-  padding: 0 22px 22px;
+  padding: 0 22px 0px;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -476,6 +478,7 @@ button {
   display: flex;
   gap: 6px;
   align-items: center;
+  margin-bottom: 20px;
   padding: 17px;
   cursor: pointer;
   border-radius: 14px;
@@ -498,18 +501,1123 @@ button {
   color: #FF6767;
 }
 
+.container main .heroMain {
+  width: 74%;
+  padding: 0px 40px 30px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.container main .heroMain > span {
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+}
+.container main .heroMain > span > div {
+  display: flex;
+  align-items: center;
+}
+.container main .heroMain > span .welcText {
+  gap: 15px;
+}
+.container main .heroMain > span .welcText h1 {
+  font-size: 36px;
+  font-weight: 500;
+}
+.container main .heroMain > span .welcText p {
+  font-size: 36px;
+}
+.container main .heroMain > span .frends {
+  display: flex;
+  gap: 5px;
+}
+.container main .heroMain > span .frends > span img {
+  width: 40px;
+  height: 40px;
+  border-radius: 7px;
+}
+.container main .heroMain > span .frends button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 2px solid #FF6767;
+  color: #FF6767;
+  padding: 7px 20px;
+  margin-left: 10px;
+  background-color: transparent;
+  border-radius: 15px;
+}
+.container main .heroMain > div {
+  border: 1px solid rgba(161, 163, 171, 0.631372549);
+  height: 90%;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  padding: 20px 25px;
+}
+.container main .heroMain > div > div {
+  border-radius: 14px;
+  box-shadow: 0px 5px 11px rgba(0, 0, 0, 0.04), 0px 19px 19px rgba(0, 0, 0, 0.03), 0px 44px 26px rgba(0, 0, 0, 0.02), 0px 77px 31px rgba(0, 0, 0, 0.01), 0px 121px 34px rgba(0, 0, 0, 0);
+}
+.container main .heroMain > div .tasks {
+  grid-column: 0/span 1;
+  grid-row: 1/span 2;
+  display: grid;
+  grid-template-rows: 2fr 1px 1.5fr;
+  grid-template-columns: 1fr;
+  padding: 12px 0;
+  row-gap: 17px;
+}
+.container main .heroMain > div .tasks > div {
+  margin: 0 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.container main .heroMain > div .tasks > div > span {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.container main .heroMain > div .tasks > div > span > div {
+  display: flex;
+  justify-content: space-between;
+}
+.container main .heroMain > div .tasks > div > span > div div {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+.container main .heroMain > div .tasks > div > span > div div h4 {
+  color: #FF6767;
+  font-size: 15px;
+  font-weight: 500;
+}
+.container main .heroMain > div .tasks > div > span > div div p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #A1A3AB;
+}
+.container main .heroMain > div .tasks > div > span > div div svg {
+  color: #A1A3AB;
+}
+.container main .heroMain > div .tasks > div > span > div .addTask {
+  cursor: pointer;
+  display: flex;
+}
+.container main .heroMain > div .tasks > div > span > div .addTask svg {
+  color: #FF6767;
+}
+.container main .heroMain > div .tasks > div > span > div button {
+  border: none;
+  background-color: transparent;
+  align-items: center;
+  gap: 10px;
+}
+.container main .heroMain > div .tasks > div > span div > span {
+  font-size: 12px;
+  -moz-column-count: 2;
+       column-count: 2;
+  -moz-column-rule: 1px solid #A1A3AB;
+       column-rule: 1px solid #A1A3AB;
+  color: #A1A3AB;
+}
+.container main .heroMain > div .tasks > div > span div > span #today-date {
+  color: black;
+}
+.container main .heroMain > div .tasks > div #taskList {
+  max-height: 190px;
+  overflow-y: auto;
+}
+.container main .heroMain > div .tasks > div #taskList > div {
+  max-width: 100%;
+  height: 150px;
+  border-radius: 14px;
+  border: 1px solid rgba(161, 163, 171, 0.631372549);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.container main .heroMain > div .tasks > div #taskList > div .circle {
+  color: #0225FF;
+}
+.container main .heroMain > div .tasks > div #taskList > div > span {
+  color: #A1A3AB;
+  width: 6%;
+}
+.container main .heroMain > div .tasks > div #taskList > div > div {
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 6px 0;
+}
+.container main .heroMain > div .tasks > div #taskList > div > div h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.container main .heroMain > div .tasks > div #taskList > div > div > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.container main .heroMain > div .tasks > div #taskList > div > div > span p {
+  color: #747474;
+}
+.container main .heroMain > div .tasks > div #taskList > div > div div {
+  display: flex;
+  justify-content: space-between;
+}
+.container main .heroMain > div .tasks > div #taskList > div > div div span {
+  font-size: 10px;
+  font-weight: 400;
+  display: flex;
+  gap: 2px;
+}
+.container main .heroMain > div .tasks #taskListTwo {
+  max-width: 100%;
+  max-height: 175px;
+  overflow: hidden;
+}
+.container main .heroMain > div .tasks #taskListTwo > div {
+  max-width: 100%;
+  height: 150px;
+  border-radius: 14px;
+  border: 1px solid rgba(161, 163, 171, 0.631372549);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.container main .heroMain > div .tasks #taskListTwo > div .circle {
+  color: #0225FF;
+}
+.container main .heroMain > div .tasks #taskListTwo > div > span {
+  color: #A1A3AB;
+  width: 6%;
+}
+.container main .heroMain > div .tasks #taskListTwo > div > div {
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 6px 0;
+}
+.container main .heroMain > div .tasks #taskListTwo > div > div h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.container main .heroMain > div .tasks #taskListTwo > div > div > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.container main .heroMain > div .tasks #taskListTwo > div > div > span p {
+  color: #747474;
+}
+.container main .heroMain > div .tasks #taskListTwo > div > div div {
+  display: flex;
+  justify-content: space-between;
+}
+.container main .heroMain > div .tasks #taskListTwo > div > div div span {
+  font-size: 10px;
+  font-weight: 400;
+  display: flex;
+  gap: 2px;
+}
+.container main .heroMain > div .status {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 25px;
+}
+.container main .heroMain > div .status > span {
+  display: flex;
+  gap: 10px;
+}
+.container main .heroMain > div .status > span svg {
+  color: #A1A3AB;
+}
+.container main .heroMain > div .status > span p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #FF6767;
+}
+.container main .heroMain > div .status > div {
+  display: flex;
+  justify-content: space-between;
+}
+.container main .heroMain > div .status > div > div {
+  width: 140px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.container main .heroMain > div .status > div > div > div {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: conic-gradient(#D9D9D9 0deg 360deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container main .heroMain > div .status > div > div > div > span {
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+.container main .heroMain > div .status > div > div > span {
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+}
+.container main .heroMain > div .status > div > div > span::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  top: 27%;
+  left: -15px;
+}
+.container main .heroMain > div .status > div #completed > span::after {
+  background: #05A301;
+}
+.container main .heroMain > div .status > div #inProgress > span::after {
+  background: #0225FF;
+}
+.container main .heroMain > div .status > div #notStarted > span::after {
+  background: #F21E1E;
+}
+.container main .heroMain > div .compelted {
+  padding: 24px;
+}
+.container main .heroMain > div .compelted > div {
+  height: 240px;
+  overflow: scroll;
+}
+.container main .heroMain > div .compelted > div > div {
+  max-width: 100%;
+  height: 150px;
+  border-radius: 14px;
+  border: 1px solid rgba(161, 163, 171, 0.631372549);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.container main .heroMain > div .compelted > div > div .circle {
+  color: #0225FF;
+}
+.container main .heroMain > div .compelted > div > div > span {
+  color: #A1A3AB;
+  width: 6%;
+}
+.container main .heroMain > div .compelted > div > div > div {
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 6px 0;
+}
+.container main .heroMain > div .compelted > div > div > div h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.container main .heroMain > div .compelted > div > div > div > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.container main .heroMain > div .compelted > div > div > div > span p {
+  color: #747474;
+}
+.container main .heroMain > div .compelted > div > div > div div {
+  display: flex;
+  justify-content: space-between;
+}
+.container main .heroMain > div .compelted > div > div > div div span {
+  font-size: 10px;
+  font-weight: 400;
+  display: flex;
+  gap: 2px;
+}
+.container main .heroMain > div .compelted > span {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.container main .heroMain > div .compelted > span svg {
+  color: #A1A3AB;
+}
+.container main .heroMain > div .compelted > span p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #F24E1E;
+}
+
+.creatingTaskMain {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -1500px;
+  background-color: rgba(0, 0, 0, 0.7411764706);
+  transition: 0.5s;
+}
+.creatingTaskMain > div {
+  width: 900px;
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 25px;
+}
+.creatingTaskMain > div > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.creatingTaskMain > div > span h1 {
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 2px solid #F24E1E;
+  padding: 3px 0;
+}
+.creatingTaskMain > div > span a {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration-thickness: 2px;
+  cursor: pointer;
+}
+.creatingTaskMain > div > div {
+  border: 1px solid rgba(161, 163, 171, 0.6392156863);
+  height: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.creatingTaskMain > div > div > span {
+  display: flex;
+  flex-direction: column;
+}
+.creatingTaskMain > div > div > span input {
+  max-width: 100%;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid #A1A3AB;
+  padding: 0 20px;
+  margin-top: 10px;
+}
+.creatingTaskMain > div > div > span label {
+  font-size: 14px;
+  font-weight: 600;
+}
+.creatingTaskMain > div > div > span p {
+  font-size: 12px;
+  font-weight: 400;
+  color: red;
+  margin-top: 4px;
+}
+.creatingTaskMain > div > div .taskPriority {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.creatingTaskMain > div > div .taskPriority h1 {
+  font-size: 14px;
+  font-weight: 600;
+}
+.creatingTaskMain > div > div .taskPriority ul {
+  display: flex;
+  gap: 55px;
+}
+.creatingTaskMain > div > div .taskPriority ul li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  font-size: 14px;
+}
+.creatingTaskMain > div > div .taskPriority ul li#extrime::before {
+  background: #FF3B30;
+}
+.creatingTaskMain > div > div .taskPriority ul li#modern::before {
+  background: #3ABEFF;
+}
+.creatingTaskMain > div > div .taskPriority ul li#low::before {
+  background: #05A301;
+}
+.creatingTaskMain > div > div .taskPriority ul li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.creatingTaskMain > div > div .taskPriority ul li input[type=checkbox] {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #A1A3AB;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  background: #fff;
+}
+.creatingTaskMain > div > div .taskPriority ul li input[type=checkbox]:checked {
+  background: #000;
+  border-color: #000;
+}
+.creatingTaskMain > div > div .taskPriority ul li input[type=checkbox]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.creatingTaskMain > div > div .taskStatus {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.creatingTaskMain > div > div .taskStatus h1 {
+  font-size: 14px;
+  font-weight: 600;
+}
+.creatingTaskMain > div > div .taskStatus ul {
+  display: flex;
+  gap: 55px;
+}
+.creatingTaskMain > div > div .taskStatus ul li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  font-size: 14px;
+}
+.creatingTaskMain > div > div .taskStatus ul li#startValue::before {
+  background: #FF3B30;
+}
+.creatingTaskMain > div > div .taskStatus ul li#ProgresVolue::before {
+  background: #0225FF;
+}
+.creatingTaskMain > div > div .taskStatus ul li#lowVolue::before {
+  background: #05A301;
+}
+.creatingTaskMain > div > div .taskStatus ul li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.creatingTaskMain > div > div .taskStatus ul li input[type=checkbox] {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #A1A3AB;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  background: #fff;
+}
+.creatingTaskMain > div > div .taskStatus ul li input[type=checkbox]:checked {
+  background: #000;
+  border-color: #000;
+}
+.creatingTaskMain > div > div .taskStatus ul li input[type=checkbox]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.creatingTaskMain > div > div .teskDesc {
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+}
+.creatingTaskMain > div > div .teskDesc span {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.creatingTaskMain > div > div .teskDesc span h1 {
+  font-size: 14px;
+  font-weight: 600;
+}
+.creatingTaskMain > div > div .teskDesc .taskValue {
+  width: 60%;
+}
+.creatingTaskMain > div > div .teskDesc .taskValue textarea {
+  width: 100%;
+  height: 110px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #A1A3AB;
+  resize: none;
+}
+.creatingTaskMain > div > div .teskDesc .taskValue p {
+  font-size: 12px;
+  font-weight: 400;
+  color: red;
+  margin-top: -8px;
+}
+.creatingTaskMain > div > div .teskDesc .taskImg {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.creatingTaskMain > div > div .teskDesc .taskImg div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.creatingTaskMain > div > div .teskDesc .taskImg div span {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.creatingTaskMain > div > div .teskDesc .taskImg div span img {
+  width: 70px;
+  display: block;
+  border-radius: 8px;
+  transition: 0.2s ease-in-out;
+}
+.creatingTaskMain > div > div .teskDesc .taskImg div span:hover img {
+  opacity: 0.7;
+}
+.creatingTaskMain > div > div .teskDesc .taskImg div span.selected img {
+  opacity: 0.6;
+}
+.creatingTaskMain > div > div .teskDesc .taskImg div span.selected::after {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+  text-shadow: 0 0 1px black;
+  pointer-events: none;
+}
+.creatingTaskMain > div > button {
+  width: 90px;
+  color: white;
+  padding: 8px 25px;
+  border-radius: 6px;
+  border: none;
+  background-color: #F24E1E;
+  cursor: pointer;
+}
+
+.taskItem {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  align-items: flex-start;
+}
+
+.taskItem .circle svg {
+  transition: 0.2s ease-in-out;
+}
+
+.taskItem.priority-extreme .circle svg {
+  stroke: #ff1744;
+}
+
+.taskItem.priority-moderate .circle svg {
+  stroke: #3ABEFF;
+}
+
+.taskItem.priority-low .circle svg {
+  stroke: #05A301;
+}
+
+.taskItem .task-meta {
+  margin-top: 8px;
+  display: flex;
+  gap: 24px;
+  font-size: 12px;
+  color: #555;
+}
+
+.taskItem .task-meta .priority-text {
+  font-weight: 500;
+}
+
+.container main .vitalTask {
+  max-width: 100%;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  padding: 0px 40px 20px;
+}
+.container main .vitalTask > div {
+  width: 50%;
+  border: 1px solid rgba(161, 163, 171, 0.631372549);
+  border-radius: 16px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.container main .vitalTask > div > span {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px 0;
+  border-bottom: 2px solid #F24E1E;
+}
+.container main .vitalTask > div > div {
+  max-width: 100%;
+  height: 150px;
+  border-radius: 14px;
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  border: 1px solid rgba(161, 163, 171, 0.631372549);
+}
+.container main .vitalTask > div > div .circle {
+  color: #0225FF;
+}
+.container main .vitalTask > div > div > span {
+  color: #A1A3AB;
+  width: 6%;
+}
+.container main .vitalTask > div > div > div {
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 6px 0;
+}
+.container main .vitalTask > div > div > div h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.container main .vitalTask > div > div > div > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.container main .vitalTask > div > div > div > span p {
+  color: #747474;
+}
+.container main .vitalTask > div > div > div div {
+  display: flex;
+  justify-content: space-between;
+}
+.container main .vitalTask > div > div > div div span {
+  font-size: 10px;
+  font-weight: 400;
+  display: flex;
+  gap: 2px;
+}
+.container main .vitalTask .taskInf {
+  max-width: 100%;
+  padding: 15px 19px;
+}
+.container main .vitalTask .taskInf > div {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  height: 100%;
+  max-width: 100%;
+}
+.container main .vitalTask .taskInf > div > span {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+}
+.container main .vitalTask .taskInf > div > span img {
+  width: 158px;
+}
+.container main .vitalTask .taskInf > div > span div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container main .vitalTask .taskInf > div > span div > span {
+  display: flex;
+  gap: 5px;
+}
+.container main .vitalTask .taskInf > div > span div h3 {
+  color: black;
+}
+.container main .vitalTask .taskInf > div > div {
+  width: 100%;
+  margin-top: 30px;
+}
+.container main .vitalTask .taskInf > div > .taskActions {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+  align-items: end;
+  height: 100%;
+  margin-top: 30px;
+}
+.container main .vitalTask .taskInf > div > .taskActions button {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: #FF6767;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+.container main .vitalTask .taskInf > div > .taskActions button svg {
+  color: white;
+}
+
+#vitalTaskMenu #vitalTaskList .taskItem {
+  transition: background 0.2s ease;
+}
+
+#vitalTaskMenu #vitalTaskList .taskItem.active {
+  background: rgba(161, 163, 171, 0.168627451);
+  box-shadow: 0 0 0 1px rgba(161, 163, 171, 0.168627451);
+}
+
+.container main .myTask {
+  max-width: 100%;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  padding: 0px 40px 20px;
+}
+.container main .myTask > div {
+  width: 50%;
+  border: 1px solid rgba(161, 163, 171, 0.631372549);
+  border-radius: 16px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.container main .myTask > div > span {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px 0;
+  border-bottom: 2px solid #0225FF;
+}
+.container main .myTask > div > div {
+  max-width: 100%;
+  height: 150px;
+  border-radius: 14px;
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  border: 1px solid rgba(161, 163, 171, 0.631372549);
+  cursor: pointer;
+}
+.container main .myTask > div > div .circle {
+  color: #0225FF;
+}
+.container main .myTask > div > div > span {
+  color: #A1A3AB;
+  width: 6%;
+}
+.container main .myTask > div > div > div {
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 6px 0;
+}
+.container main .myTask > div > div > div h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.container main .myTask > div > div > div > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.container main .myTask > div > div > div > span p {
+  color: #747474;
+}
+.container main .myTask > div > div > div div {
+  display: flex;
+  justify-content: space-between;
+}
+.container main .myTask > div > div > div div span {
+  font-size: 10px;
+  font-weight: 400;
+  display: flex;
+  gap: 2px;
+}
+.container main .myTask .myTaskInf {
+  max-width: 100%;
+  padding: 15px 19px;
+}
+.container main .myTask .myTaskInf > div {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  height: 100%;
+  max-width: 100%;
+}
+.container main .myTask .myTaskInf > div > span {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+}
+.container main .myTask .myTaskInf > div > span img {
+  width: 158px;
+}
+.container main .myTask .myTaskInf > div > span div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container main .myTask .myTaskInf > div > span div > span {
+  display: flex;
+  gap: 5px;
+}
+.container main .myTask .myTaskInf > div > span div h3 {
+  color: black;
+}
+.container main .myTask .myTaskInf > div > div {
+  width: 100%;
+  margin-top: 30px;
+}
+.container main .myTask .myTaskInf > div > .taskActions {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+  align-items: end;
+  height: 100%;
+  margin-top: 30px;
+}
+.container main .myTask .myTaskInf > div > .taskActions button {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: #FF6767;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+.container main .myTask .myTaskInf > div > .taskActions button svg {
+  color: white;
+}
+
+#myTaskMenu #myTaskList .taskItem {
+  transition: background 0.2s ease;
+}
+
+#myTaskMenu #myTaskList .taskItem.active {
+  background: rgba(161, 163, 171, 0.168627451);
+  box-shadow: 0 0 0 1px rgba(161, 163, 171, 0.168627451);
+}
+
+.container main .categMain {
+  width: 100%;
+  height: 480px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(161, 163, 171, 0.631372549);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 0 40px 20px;
+  overflow-y: auto;
+}
+.container main .categMain > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container main .categMain > header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.container main .categMain > header > div h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #000;
+}
+.container main .categMain > header > div span {
+  width: 60px;
+  height: 2px;
+  background: #F24E1E;
+  display: block;
+}
+.container main .categMain > header a {
+  font-size: 14px;
+  color: #000;
+  text-decoration: underline;
+}
+.container main .categMain > button {
+  width: -moz-fit-content;
+  width: fit-content;
+  background: #F26430;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.container main .categMain > section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.container main .categMain > section > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container main .categMain > section > header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.container main .categMain > section > header > div h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+.container main .categMain > section > header > div span {
+  width: 40px;
+  height: 2px;
+  background: #F24E1E;
+  display: block;
+}
+.container main .categMain > section > header > button {
+  background: none;
+  border: none;
+  color: #A1A3AB;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.container main .categMain > section table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid rgba(161, 163, 171, 0.631372549);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.container main .categMain > section table thead {
+  background: #F8FAFD;
+}
+.container main .categMain > section table thead th {
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid rgba(161, 163, 171, 0.631372549);
+}
+.container main .categMain > section table thead th:not(:last-child) {
+  border-right: 1px solid rgba(161, 163, 171, 0.631372549);
+}
+.container main .categMain > section table tbody tr td {
+  padding: 14px;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+}
+.container main .categMain > section table tbody tr td:not(:last-child) {
+  border-right: 1px solid rgba(161, 163, 171, 0.631372549);
+}
+.container main .categMain > section table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid rgba(161, 163, 171, 0.631372549);
+}
+.container main .categMain > section table tbody tr td:last-child {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+.container main .categMain > section table tbody tr td:last-child button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+.container main .categMain > section table tbody tr td:last-child button[data-action=edit] {
+  background: #F26430;
+}
+.container main .categMain > section table tbody tr td:last-child button[data-action=delete] {
+  background: #F26430;
+}
+.container main .categMain hr {
+  border: none;
+  height: 1px;
+  width: 100%;
+  background: #E5E7EB;
+}
+
 .container {
   width: 100%;
   height: 100vh;
   flex-direction: column;
 }
-.container header {
+.container > header {
   padding: 37px 72px 24px;
   background-color: #F8F8F8;
   display: flex;
   justify-content: space-between;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.07);
   height: 50px;
+  margin-bottom: 50px;
 }
 .container main {
   background-color: #fff;

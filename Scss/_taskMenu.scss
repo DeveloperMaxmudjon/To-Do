@@ -1,0 +1,356 @@
+.creatingTaskMain {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -1500px;          
+    background-color: #000000BD;
+    transition: .5s;
+
+    > div {
+        width: 900px;
+        background-color: #fff;
+        margin: 0 auto;
+        border-radius: 5px;
+        padding: 30px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 25px;
+
+        > span {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            h1 {
+                font-size: 16px;
+                font-weight: 600;
+                border-bottom: 2px solid #F24E1E;
+                padding: 3px 0;
+            }
+
+            a {
+                color: #000000;
+                font-size: 14px;
+                font-weight: 600;
+                text-decoration-thickness: 2px;
+                cursor: pointer;
+            }
+        }
+
+        > div {
+            border: 1px solid #A1A3ABA3;
+            height: 100%;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            > span {
+                display: flex;
+                flex-direction: column;
+
+                input {
+                    max-width: 100%;
+                    height: 36px;
+                    border-radius: 6px;
+                    border: 1px solid #A1A3AB;
+                    padding: 0 20px;
+                    margin-top: 10px;
+                }
+
+                label {
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+
+                p {
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: red;
+                    margin-top: 4px;
+                }
+            }
+
+            .taskPriority {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                h1 {
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+
+                ul {
+                    display: flex;
+                    gap: 55px;
+
+                    li {
+                        list-style: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        position: relative;
+                        font-size: 14px;
+
+                        &#extrime::before {
+                            background: #FF3B30; 
+                        }
+                        &#modern::before {
+                            background: #3ABEFF; 
+                        }
+                        &#low::before {
+                            background: #05A301; 
+                        }
+
+                        &::before {
+                            content: "";
+                            width: 7px;
+                            height: 7px;
+                            border-radius: 50%;
+                            display: inline-block;
+                        }
+
+                        input[type="checkbox"] {
+                            appearance: none;
+                            -webkit-appearance: none;
+                            width: 17px;
+                            height: 17px;
+                            border: 1px solid #A1A3AB;
+                            border-radius: 3px;
+                            cursor: pointer;
+                            position: relative;
+                            background: #fff;
+
+                            &:checked {
+                                background: #000;
+                                border-color: #000;
+                            }
+
+                            &:checked::after {
+                                content: "";
+                                position: absolute;
+                                left: 5px;
+                                top: 1px;
+                                width: 4px;
+                                height: 8px;
+                                border: solid #fff;
+                                border-width: 0 2px 2px 0;
+                                transform: rotate(45deg);
+                            }
+                        }
+                    }
+                }
+            }
+            .taskStatus {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                h1 {
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+
+                ul {
+                    display: flex;
+                    gap: 55px;
+
+                    li {
+                        list-style: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        position: relative;
+                        font-size: 14px;
+
+                        &#startValue::before {
+                            background: #FF3B30; 
+                        }
+                        &#ProgresVolue::before {
+                            background: #0225FF; 
+                        }
+                        &#lowVolue::before {
+                            background: #05A301; 
+                        }
+
+                        &::before {
+                            content: "";
+                            width: 7px;
+                            height: 7px;
+                            border-radius: 50%;
+                            display: inline-block;
+                        }
+
+                        input[type="checkbox"] {
+                            appearance: none;
+                            -webkit-appearance: none;
+                            width: 17px;
+                            height: 17px;
+                            border: 1px solid #A1A3AB;
+                            border-radius: 3px;
+                            cursor: pointer;
+                            position: relative;
+                            background: #fff;
+
+                            &:checked {
+                                background: #000;
+                                border-color: #000;
+                            }
+
+                            &:checked::after {
+                                content: "";
+                                position: absolute;
+                                left: 5px;
+                                top: 1px;
+                                width: 4px;
+                                height: 8px;
+                                border: solid #fff;
+                                border-width: 0 2px 2px 0;
+                                transform: rotate(45deg);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .teskDesc {
+                display: flex;
+                gap: 25px;
+                justify-content: space-between;
+
+                span {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    h1 {
+                        font-size: 14px;
+                        font-weight: 600;
+                    }
+                }
+
+                .taskValue {
+                    width: 60%;
+
+                    textarea {
+                        width: 100%;
+                        height: 110px;
+                        padding: 10px;
+                        border-radius: 6px;
+                        border: 1px solid #A1A3AB;
+                        resize: none;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        font-weight: 400;
+                        color: red;
+                        margin-top: -8px;
+                    }
+                }
+
+                .taskImg {
+                    width: 35%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    div {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 10px;
+
+                        span {
+                            position: relative;
+                            display: inline-block;
+                            cursor: pointer;
+                            transition: 0.2s ease-in-out;
+
+                            img {
+                                width: 70px;
+                                display: block;
+                                border-radius: 8px;
+                                transition: 0.2s ease-in-out;
+                            }
+
+                            &:hover img {
+                                opacity: 0.7;
+                            }
+
+                            &.selected img {
+                                opacity: 0.6;
+                            }
+
+                            &.selected::after {
+                                content: "✔";
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                font-size: 30px;
+                                color: black;
+                                font-weight: bold;
+                                text-shadow: 0 0 1px black;
+                                pointer-events: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        > button {
+            width: 90px;
+            color: white;
+            padding: 8px 25px;
+            border-radius: 6px;
+            border: none;
+            background-color: #F24E1E;
+            cursor: pointer;
+        }
+    }
+}
+
+
+.taskItem {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+}
+
+.taskItem .circle svg {
+    transition: 0.2s ease-in-out;
+}
+
+.taskItem.priority-extreme .circle svg {
+    stroke: #ff1744;
+}
+
+.taskItem.priority-moderate .circle svg {
+    stroke: #3ABEFF;
+}
+
+.taskItem.priority-low .circle svg {
+    stroke: #05A301;
+}
+
+.taskItem .task-meta {
+    margin-top: 8px;
+    display: flex;
+    gap: 24px;
+    font-size: 12px;
+    color: #555;
+}
+
+.taskItem .task-meta .priority-text {
+    font-weight: 500;
+}
