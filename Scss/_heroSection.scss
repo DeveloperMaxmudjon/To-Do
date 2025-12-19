@@ -2,38 +2,46 @@
     main {
         .heroMain {
             width: 74%;
-            padding: 0px 40px 30px 40px;
-            display: flex; 
+            height: 100%;
+            padding: 10px 40px 20px 10px;
+            display: flex;
             flex-direction: column;
             gap: 15px;
+            overflow: hidden;
 
-            > span {
+            >span {
                 display: flex;
                 justify-content: space-between;
                 height: 10%;
+                flex-shrink: 0;
 
-                > div {
+
+                >div {
                     display: flex;
                     align-items: center;
                 }
 
                 .welcText {
                     gap: 15px;
+
                     h1 {
                         font-size: 36px;
                         font-weight: 500;
                     }
+
                     p {
                         font-size: 36px;
                     }
                 }
+
                 .frends {
                     display: flex;
                     gap: 5px;
-                    > span {
+
+                    >span {
                         img {
                             width: 40px;
-                            height:40px;
+                            height: 40px;
                             border-radius: 7px;
                         }
                     }
@@ -52,17 +60,18 @@
                 }
             }
 
-            > div {
+            >div {
                 border: 1px solid #A1A3ABA1;
-                height: 90%;
+                flex: 1;
+                overflow: hidden;
                 box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: 1fr 1fr;
                 gap: 16px;
-                padding: 20px 25px;
+                padding: 16px 25px;
 
-                > div {
+                >div {
                     border-radius: 14px;
                     box-shadow:
                         0px 5px 11px rgba(0, 0, 0, 0.04),
@@ -73,25 +82,26 @@
                 }
 
                 .tasks {
-                        grid-column: 0 / span 1;
-                        grid-row: 1 / span 2;
-                        display: grid;
-                        grid-template-rows: 2fr 1px 1.5fr;
-                        grid-template-columns: 1fr;
-                        padding: 12px 0;
-                        row-gap: 17px;
+                    grid-column: 0 / span 1;
+                    grid-row: 1 / span 2;
+                    display: grid;
+                    grid-template-rows: auto 1px auto;
+                    grid-template-columns: 1fr;
+                    padding: 12px 0;
+                    row-gap: 17px;
 
-                    > div  {
+                    >div {
                         margin: 0 15px;
                         display: flex;
                         flex-direction: column;
                         gap: 7px;
 
-                        > span {
+                        >span {
                             display: flex;
                             flex-direction: column;
                             gap: 5px;
-                            > div {
+
+                            >div {
                                 display: flex;
                                 justify-content: space-between;
 
@@ -116,14 +126,18 @@
                                         color: #A1A3AB;
                                     }
                                 }
+
                                 .addTask {
                                     cursor: pointer;
+
                                     svg {
                                         color: #FF6767;
                                     }
+
                                     display: flex;
-                                    
+
                                 }
+
                                 button {
                                     border: none;
                                     background-color: transparent;
@@ -133,7 +147,7 @@
                             }
 
                             div {
-                                > span {
+                                >span {
                                     font-size: 12px;
                                     column-count: 2;
                                     column-rule: 1px solid #A1A3AB;
@@ -147,72 +161,73 @@
                         }
 
                         #taskList {
-                        max-height: 190px;
-                        overflow-y: auto;
+                            max-height: 175px;
+                            overflow-y: auto;
+                            display: grid;
+                            row-gap: 10px;
 
-                        > div {
-                            max-width: 100%;
-                            height: 150px;
-                            border-radius: 14px;
-                            border: 1px solid #A1A3ABA1;
-                            display: flex;
-                            justify-content: space-between;
-                            padding: 10px;
-
-                            .circle {
-                                color: #0225FF;
-                            }
-
-                            > span {
-                                color: #A1A3AB;
-                                width: 6%;
-                            }
-
-                            > div {
-                                width: 88%;
+                            >div {
+                                max-width: 100%;
+                                border-radius: 14px;
+                                border: 1px solid #A1A3ABA1;
                                 display: flex;
-                                flex-direction: column;
-                                gap: 10px;
-                                padding: 6px 0;
+                                justify-content: space-between;
+                                padding: 10px;
 
-                                h3 {
-                                    font-size: 16px;
-                                    font-weight: 600;
+                                .circle {
+                                    color: #0225FF;
                                 }
 
-                                > span {
+                                >span {
+                                    color: #A1A3AB;
+                                    width: 6%;
+                                }
+
+                                >div {
+                                    width: 88%;
                                     display: flex;
-                                    justify-content: space-between;
-                                    align-items: center;
+                                    flex-direction: column;
                                     gap: 10px;
+                                    padding: 6px 0;
 
-                                    p {
-                                        color: #747474;
+                                    h3 {
+                                        font-size: 16px;
+                                        font-weight: 600;
                                     }
-                                }
 
-                                div {
-                                    display: flex;
-                                    justify-content: space-between;
-                                    span {
-                                        font-size: 10px;
-                                        font-weight: 400;
+                                    >span {
                                         display: flex;
-                                        gap: 2px;
+                                        justify-content: space-between;
+                                        align-items: center;
+                                        gap: 10px;
+
+                                        p {
+                                            color: #747474;
+                                        }
+                                    }
+
+                                    div {
+                                        display: flex;
+                                        justify-content: space-between;
+
+                                        span {
+                                            font-size: 10px;
+                                            font-weight: 400;
+                                            display: flex;
+                                            gap: 2px;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                    }
 
                     #taskListTwo {
                         max-width: 100%;
-                        max-height: 175px;
                         overflow: hidden;
-                        > div {
+
+                        >div {
                             max-width: 100%;
-                            height: 150px;
                             border-radius: 14px;
                             border: 1px solid #A1A3ABA1;
                             display: flex;
@@ -223,13 +238,13 @@
                                 color: #0225FF;
                             }
 
-                            > span {
+                            >span {
                                 color: #A1A3AB;
                                 width: 6%;
                             }
 
 
-                            > div {
+                            >div {
                                 width: 88%;
                                 display: flex;
                                 flex-direction: column;
@@ -241,7 +256,7 @@
                                     font-weight: 600;
                                 }
 
-                                > span {
+                                >span {
                                     display: flex;
                                     justify-content: space-between;
                                     align-items: center;
@@ -250,12 +265,13 @@
                                     p {
                                         color: #747474;
                                     }
-                                    
+
                                 }
 
                                 div {
                                     display: flex;
                                     justify-content: space-between;
+
                                     span {
                                         font-size: 10px;
                                         font-weight: 400;
@@ -272,15 +288,16 @@
                     display: flex;
                     flex-direction: column;
                     gap: 15px;
-                    padding: 25px;
+                    padding: 17px;
 
-                    > span {
+                    >span {
                         display: flex;
                         gap: 10px;
 
                         svg {
                             color: #A1A3AB;
                         }
+
                         p {
                             font-size: 15px;
                             font-weight: 500;
@@ -288,19 +305,19 @@
                         }
                     }
 
-                    > div {
+                    >div {
                         display: flex;
                         justify-content: space-between;
 
-                        > div {
+                        >div {
                             width: 140px;
-                            height: 160px;
+                            height: 145px;
                             display: flex;
                             flex-direction: column;
                             justify-content: space-between;
                             align-items: center;
 
-                            > div {
+                            >div {
                                 width: 110px;
                                 height: 110px;
                                 border-radius: 50%;
@@ -309,7 +326,7 @@
                                 justify-content: center;
                                 align-items: center;
 
-                                > span {
+                                >span {
                                     width: 80px;
                                     height: 80px;
                                     background: #fff;
@@ -322,7 +339,7 @@
                                 }
                             }
 
-                            > span {
+                            >span {
                                 font-size: 15px;
                                 font-weight: 500;
                                 position: relative;
@@ -339,39 +356,48 @@
                             }
                         }
 
-                        #completed > span::after { background: #05A301; }
-                        #inProgress > span::after { background: #0225FF; }
-                        #notStarted > span::after { background: #F21E1E; }
+                        #completed>span::after {
+                            background: #05A301;
+                        }
+
+                        #inProgress>span::after {
+                            background: #0225FF;
+                        }
+
+                        #notStarted>span::after {
+                            background: #F21E1E;
+                        }
                     }
                 }
 
                 .compelted {
-                    padding: 24px;
+                    padding: 18px;
 
-                    > div {
-                        height: 240px;
-                        overflow: scroll;
+                    >div {
+                        width: 100%;
+                        height: 175px;
+                        overflow-y: scroll;
+                        display: grid;
+                        row-gap: 10px;
 
-                        > div {
+                        >div {
                             max-width: 100%;
-                            height: 150px;
                             border-radius: 14px;
                             border: 1px solid #A1A3ABA1;
                             display: flex;
                             justify-content: space-between;
                             padding: 10px;
-                            margin-bottom: 10px;
 
                             .circle {
                                 color: #0225FF;
                             }
 
-                            > span {
+                            >span {
                                 color: #A1A3AB;
                                 width: 6%;
                             }
 
-                            > div {
+                            >div {
                                 width: 88%;
                                 display: flex;
                                 flex-direction: column;
@@ -383,7 +409,7 @@
                                     font-weight: 600;
                                 }
 
-                                > span {
+                                >span {
                                     display: flex;
                                     justify-content: space-between;
                                     align-items: center;
@@ -397,6 +423,7 @@
                                 div {
                                     display: flex;
                                     justify-content: space-between;
+
                                     span {
                                         font-size: 10px;
                                         font-weight: 400;
@@ -408,7 +435,7 @@
                         }
                     }
 
-                    > span {
+                    >span {
                         display: flex;
                         gap: 12px;
                         align-items: center;
@@ -424,7 +451,7 @@
                             color: #F24E1E;
                         }
                     }
-                    
+
                 }
             }
         }

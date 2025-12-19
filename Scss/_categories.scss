@@ -2,7 +2,7 @@
     main {
         .categMain {
             width: 100%;
-            height: 480px;
+            height: calc(100% - 70px);
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
@@ -11,15 +11,118 @@
             display: flex;
             flex-direction: column;
             gap: 28px;
-            margin: 0 40px 20px;
+            margin: 40px 40px 30px;
             overflow-y: auto;
 
-            > header {
+            #editorModal {
+                max-width: 100%;
+                height: 100%;
+                margin: 0 auto;
+                background-color: rgba(255, 255, 255, 0.9);
+                z-index: 1000;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                #editorModalBox {
+                    width: 100%;
+                    background: #fff;
+                    border: 1px solid #A1A3ABA1;
+                    padding: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+
+                    header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        border-bottom: none;
+
+                        div {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 4px;
+
+                            h2 {
+                                font-size: 20px;
+                                font-weight: 700;
+                                color: #000;
+                            }
+
+                            span {
+                                width: 40px;
+                                height: 3px;
+                                background: #F24E1E;
+                                display: block;
+                                border-radius: 2px;
+                            }
+                        }
+
+                        a {
+                            font-size: 14px;
+                            font-weight: 600;
+                            text-decoration: underline;
+                            color: #000;
+                        }
+                    }
+
+                    #editorForm {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        label {
+                            font-size: 14px;
+                            font-weight: 700;
+                            color: #000;
+                        }
+
+                        input {
+                            width: 100%;
+                            padding: 12px;
+                            border: 1px solid #A1A3ABA1;
+                            border-radius: 6px;
+                            outline: none;
+                            font-size: 14px;
+
+                            &:focus {
+                                border-color: #F24E1E;
+                            }
+                        }
+
+                        #editorActions {
+                            display: flex;
+                            gap: 16px;
+                            margin-top: 10px;
+
+                            button {
+                                padding: 10px 30px;
+                                border-radius: 6px;
+                                border: none;
+                                font-size: 14px;
+                                font-weight: 500;
+                                cursor: pointer;
+                                color: #fff;
+                                background-color: #F24E1E;
+                                transition: background 0.3s;
+
+                                &:hover {
+                                    background-color: darken(#F24E1E, 10%);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            >header {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
 
-                > div {
+                >div {
                     display: flex;
                     flex-direction: column;
                     gap: 6px;
@@ -45,132 +148,137 @@
                 }
             }
 
-            > button {
-                width: fit-content;
-                background: #F26430;
-                color: #fff;
-                border: none;
-                border-radius: 8px;
-                padding: 10px 18px;
-                font-size: 14px;
-                font-weight: 500;
-                cursor: pointer;
-            }
 
-            > section {
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-
-                > header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-
-                    > div {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 4px;
-
-                        h3 {
-                            font-size: 16px;
-                            font-weight: 600;
-                            color: #000;
-                        }
-
-                        span {
-                            width: 40px;
-                            height: 2px;
-                            background: #F24E1E;
-                            display: block;
-                        }
-                    }
-
-                    > button {
-                        background: none;
-                        border: none;
-                        color: #A1A3AB;
-                        font-size: 14px;
-                        cursor: pointer;
-                        display: inline-flex;
-                        align-items: center;
-                        gap: 8px;
-                    }
+            >div {
+                >button {
+                    width: fit-content;
+                    background: #F26430;
+                    color: #fff;
+                    border: none;
+                    border-radius: 8px;
+                    padding: 10px 18px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    cursor: pointer;
                 }
 
-                table {
-                    width: 100%;
-                    border-collapse: separate;
-                    border-spacing: 0;
-                    border: 1px solid #A1A3ABA1;
-                    border-radius: 14px;
-                    overflow: hidden;
+                >section {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    margin-top: 16px;
 
-                    thead {
-                        background: #F8FAFD;
+                    >header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
 
-                        th {
-                            padding: 14px;
-                            font-size: 14px;
-                            font-weight: 600;
-                            text-align: center;
-                            border-bottom: 1px solid #A1A3ABA1;
+                        >div {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 4px;
 
-                            &:not(:last-child) {
-                                border-right: 1px solid #A1A3ABA1;
+                            h3 {
+                                font-size: 16px;
+                                font-weight: 600;
+                                color: #000;
                             }
+
+                            span {
+                                width: 40px;
+                                height: 2px;
+                                background: #F24E1E;
+                                display: block;
+                            }
+                        }
+
+                        >button {
+                            background: none;
+                            border: none;
+                            color: #A1A3AB;
+                            font-size: 14px;
+                            cursor: pointer;
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 8px;
                         }
                     }
 
-                    tbody {
-                        tr {
-                            td {
+                    table {
+                        width: 100%;
+                        border-collapse: separate;
+                        border-spacing: 0;
+                        border: 1px solid #A1A3ABA1;
+                        border-radius: 14px;
+                        overflow: hidden;
+
+                        thead {
+                            background: #F8FAFD;
+
+                            th {
                                 padding: 14px;
                                 font-size: 14px;
+                                font-weight: 600;
                                 text-align: center;
-                                vertical-align: middle;
+                                border-bottom: 1px solid #A1A3ABA1;
 
                                 &:not(:last-child) {
                                     border-right: 1px solid #A1A3ABA1;
                                 }
                             }
+                        }
 
-                            &:not(:last-child) td {
-                                border-bottom: 1px solid #A1A3ABA1;
-                            }
-
-                            td:last-child {
-                                display: flex;
-                                justify-content: center;
-                                gap: 12px;
-
-                                button {
-                                    border: none;
-                                    border-radius: 8px;
-                                    padding: 8px 16px;
+                        tbody {
+                            tr {
+                                td {
+                                    padding: 14px;
                                     font-size: 14px;
-                                    color: #fff;
-                                    cursor: pointer;
+                                    text-align: center;
+                                    vertical-align: middle;
+
+                                    &:not(:last-child) {
+                                        border-right: 1px solid #A1A3ABA1;
+                                    }
                                 }
 
-                                button[data-action="edit"] {
-                                    background: #F26430;
+                                &:not(:last-child) td {
+                                    border-bottom: 1px solid #A1A3ABA1;
                                 }
 
-                                button[data-action="delete"] {
-                                    background: #F26430;
+                                td:last-child {
+                                    display: flex;
+                                    justify-content: center;
+                                    gap: 12px;
+
+                                    button {
+                                        border: none;
+                                        border-radius: 8px;
+                                        padding: 8px 16px;
+                                        font-size: 14px;
+                                        color: #fff;
+                                        cursor: pointer;
+                                        background-color: #F26430;
+                                    }
+
+                                    button[data-action="edit"] {
+                                        background: #F26430;
+                                    }
+
+                                    button[data-action="delete"] {
+                                        background: #F26430;
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
 
-            hr {
-                border: none;
-                height: 1px;
-                width: 100%;
-                background: #E5E7EB;
+                hr {
+                    border: none;
+                    height: 1px;
+                    width: 100%;
+                    background: #E5E7EB;
+                }
             }
         }
     }

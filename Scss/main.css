@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
 }
 
 button {
@@ -394,9 +395,9 @@ button {
 }
 .container main .sidNav .sidbar {
   width: 100%;
-  min-height: 100%;
+  height: calc(100% - 40px);
   background-color: #FF6767;
-  padding: 0 22px 0px;
+  padding: 0 22px 30px;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -417,7 +418,7 @@ button {
   text-align: center;
   align-items: center;
   gap: 3px;
-  margin-top: -50px;
+  margin-top: -30px;
 }
 .container main .sidNav .sidbar .sidTop .userNav #userImg {
   border: 1px solid white;
@@ -426,6 +427,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000000000;
 }
 .container main .sidNav .sidbar .sidTop .userNav #userNames {
   display: flex;
@@ -503,15 +505,18 @@ button {
 
 .container main .heroMain {
   width: 74%;
-  padding: 0px 40px 30px 40px;
+  height: 100%;
+  padding: 10px 40px 20px 10px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  overflow: hidden;
 }
 .container main .heroMain > span {
   display: flex;
   justify-content: space-between;
   height: 10%;
+  flex-shrink: 0;
 }
 .container main .heroMain > span > div {
   display: flex;
@@ -549,13 +554,14 @@ button {
 }
 .container main .heroMain > div {
   border: 1px solid rgba(161, 163, 171, 0.631372549);
-  height: 90%;
+  flex: 1;
+  overflow: hidden;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 16px;
-  padding: 20px 25px;
+  padding: 16px 25px;
 }
 .container main .heroMain > div > div {
   border-radius: 14px;
@@ -565,7 +571,7 @@ button {
   grid-column: 0/span 1;
   grid-row: 1/span 2;
   display: grid;
-  grid-template-rows: 2fr 1px 1.5fr;
+  grid-template-rows: auto 1px auto;
   grid-template-columns: 1fr;
   padding: 12px 0;
   row-gap: 17px;
@@ -628,12 +634,13 @@ button {
   color: black;
 }
 .container main .heroMain > div .tasks > div #taskList {
-  max-height: 190px;
+  max-height: 175px;
   overflow-y: auto;
+  display: grid;
+  row-gap: 10px;
 }
 .container main .heroMain > div .tasks > div #taskList > div {
   max-width: 100%;
-  height: 150px;
   border-radius: 14px;
   border: 1px solid rgba(161, 163, 171, 0.631372549);
   display: flex;
@@ -679,12 +686,10 @@ button {
 }
 .container main .heroMain > div .tasks #taskListTwo {
   max-width: 100%;
-  max-height: 175px;
   overflow: hidden;
 }
 .container main .heroMain > div .tasks #taskListTwo > div {
   max-width: 100%;
-  height: 150px;
   border-radius: 14px;
   border: 1px solid rgba(161, 163, 171, 0.631372549);
   display: flex;
@@ -732,7 +737,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 25px;
+  padding: 17px;
 }
 .container main .heroMain > div .status > span {
   display: flex;
@@ -752,7 +757,7 @@ button {
 }
 .container main .heroMain > div .status > div > div {
   width: 140px;
-  height: 160px;
+  height: 145px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -802,21 +807,22 @@ button {
   background: #F21E1E;
 }
 .container main .heroMain > div .compelted {
-  padding: 24px;
+  padding: 18px;
 }
 .container main .heroMain > div .compelted > div {
-  height: 240px;
-  overflow: scroll;
+  width: 100%;
+  height: 175px;
+  overflow-y: scroll;
+  display: grid;
+  row-gap: 10px;
 }
 .container main .heroMain > div .compelted > div > div {
   max-width: 100%;
-  height: 150px;
   border-radius: 14px;
   border: 1px solid rgba(161, 163, 171, 0.631372549);
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  margin-bottom: 10px;
 }
 .container main .heroMain > div .compelted > div > div .circle {
   color: #0225FF;
@@ -960,22 +966,11 @@ button {
   gap: 8px;
   position: relative;
   font-size: 14px;
-}
-.creatingTaskMain > div > div .taskPriority ul li#extrime::before {
-  background: #FF3B30;
-}
-.creatingTaskMain > div > div .taskPriority ul li#modern::before {
-  background: #3ABEFF;
-}
-.creatingTaskMain > div > div .taskPriority ul li#low::before {
-  background: #05A301;
-}
-.creatingTaskMain > div > div .taskPriority ul li::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  font-size: 14px;
 }
 .creatingTaskMain > div > div .taskPriority ul li input[type=checkbox] {
   -moz-appearance: none;
@@ -1024,22 +1019,11 @@ button {
   gap: 8px;
   position: relative;
   font-size: 14px;
-}
-.creatingTaskMain > div > div .taskStatus ul li#startValue::before {
-  background: #FF3B30;
-}
-.creatingTaskMain > div > div .taskStatus ul li#ProgresVolue::before {
-  background: #0225FF;
-}
-.creatingTaskMain > div > div .taskStatus ul li#lowVolue::before {
-  background: #05A301;
-}
-.creatingTaskMain > div > div .taskStatus ul li::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  font-size: 14px;
 }
 .creatingTaskMain > div > div .taskStatus ul li input[type=checkbox] {
   -moz-appearance: none;
@@ -1155,7 +1139,6 @@ button {
   gap: 16px;
   padding: 16px;
   border-radius: 14px;
-  margin-bottom: 12px;
   align-items: flex-start;
 }
 
@@ -1192,16 +1175,20 @@ button {
   display: flex;
   gap: 20px;
   width: 100%;
-  padding: 0px 40px 20px;
+  height: 100%;
+  overflow: hidden;
+  padding: 40px 40px 30px;
 }
 .container main .vitalTask > div {
   width: 50%;
+  height: 100%;
   border: 1px solid rgba(161, 163, 171, 0.631372549);
   border-radius: 16px;
   padding: 20px 30px;
   display: flex;
   flex-direction: column;
   gap: 22px;
+  overflow-y: auto;
 }
 .container main .vitalTask > div > span {
   font-size: 16px;
@@ -1211,7 +1198,6 @@ button {
 }
 .container main .vitalTask > div > div {
   max-width: 100%;
-  height: 150px;
   border-radius: 14px;
   display: flex;
   gap: 15px;
@@ -1327,16 +1313,20 @@ button {
   display: flex;
   gap: 20px;
   width: 100%;
-  padding: 0px 40px 20px;
+  height: 100%;
+  overflow: hidden;
+  padding: 40px 40px 30px;
 }
 .container main .myTask > div {
   width: 50%;
+  height: 100%;
   border: 1px solid rgba(161, 163, 171, 0.631372549);
   border-radius: 16px;
   padding: 20px 30px;
   display: flex;
   flex-direction: column;
   gap: 22px;
+  overflow: scroll;
 }
 .container main .myTask > div > span {
   font-size: 16px;
@@ -1346,7 +1336,6 @@ button {
 }
 .container main .myTask > div > div {
   max-width: 100%;
-  height: 150px;
   border-radius: 14px;
   display: flex;
   gap: 15px;
@@ -1460,7 +1449,7 @@ button {
 
 .container main .categMain {
   width: 100%;
-  height: 480px;
+  height: calc(100% - 70px);
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
@@ -1469,8 +1458,96 @@ button {
   display: flex;
   flex-direction: column;
   gap: 28px;
-  margin: 0 40px 20px;
+  margin: 40px 40px 30px;
   overflow-y: auto;
+}
+.container main .categMain #editorModal {
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container main .categMain #editorModal #editorModalBox {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(161, 163, 171, 0.631372549);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.container main .categMain #editorModal #editorModalBox header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: none;
+}
+.container main .categMain #editorModal #editorModalBox header div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.container main .categMain #editorModal #editorModalBox header div h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+.container main .categMain #editorModal #editorModalBox header div span {
+  width: 40px;
+  height: 3px;
+  background: #F24E1E;
+  display: block;
+  border-radius: 2px;
+}
+.container main .categMain #editorModal #editorModalBox header a {
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  color: #000;
+}
+.container main .categMain #editorModal #editorModalBox #editorForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container main .categMain #editorModal #editorModalBox #editorForm label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+}
+.container main .categMain #editorModal #editorModalBox #editorForm input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(161, 163, 171, 0.631372549);
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+}
+.container main .categMain #editorModal #editorModalBox #editorForm input:focus {
+  border-color: #F24E1E;
+}
+.container main .categMain #editorModal #editorModalBox #editorForm #editorActions {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+.container main .categMain #editorModal #editorModalBox #editorForm #editorActions button {
+  padding: 10px 30px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+  background-color: #F24E1E;
+  transition: background 0.3s;
+}
+.container main .categMain #editorModal #editorModalBox #editorForm #editorActions button:hover {
+  background-color: #d1390c;
 }
 .container main .categMain > header {
   display: flex;
@@ -1498,7 +1575,7 @@ button {
   color: #000;
   text-decoration: underline;
 }
-.container main .categMain > button {
+.container main .categMain > div > button {
   width: -moz-fit-content;
   width: fit-content;
   background: #F26430;
@@ -1510,33 +1587,34 @@ button {
   font-weight: 500;
   cursor: pointer;
 }
-.container main .categMain > section {
+.container main .categMain > div > section {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-top: 16px;
 }
-.container main .categMain > section > header {
+.container main .categMain > div > section > header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.container main .categMain > section > header > div {
+.container main .categMain > div > section > header > div {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-.container main .categMain > section > header > div h3 {
+.container main .categMain > div > section > header > div h3 {
   font-size: 16px;
   font-weight: 600;
   color: #000;
 }
-.container main .categMain > section > header > div span {
+.container main .categMain > div > section > header > div span {
   width: 40px;
   height: 2px;
   background: #F24E1E;
   display: block;
 }
-.container main .categMain > section > header > button {
+.container main .categMain > div > section > header > button {
   background: none;
   border: none;
   color: #A1A3AB;
@@ -1546,7 +1624,7 @@ button {
   align-items: center;
   gap: 8px;
 }
-.container main .categMain > section table {
+.container main .categMain > div > section table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
@@ -1554,51 +1632,52 @@ button {
   border-radius: 14px;
   overflow: hidden;
 }
-.container main .categMain > section table thead {
+.container main .categMain > div > section table thead {
   background: #F8FAFD;
 }
-.container main .categMain > section table thead th {
+.container main .categMain > div > section table thead th {
   padding: 14px;
   font-size: 14px;
   font-weight: 600;
   text-align: center;
   border-bottom: 1px solid rgba(161, 163, 171, 0.631372549);
 }
-.container main .categMain > section table thead th:not(:last-child) {
+.container main .categMain > div > section table thead th:not(:last-child) {
   border-right: 1px solid rgba(161, 163, 171, 0.631372549);
 }
-.container main .categMain > section table tbody tr td {
+.container main .categMain > div > section table tbody tr td {
   padding: 14px;
   font-size: 14px;
   text-align: center;
   vertical-align: middle;
 }
-.container main .categMain > section table tbody tr td:not(:last-child) {
+.container main .categMain > div > section table tbody tr td:not(:last-child) {
   border-right: 1px solid rgba(161, 163, 171, 0.631372549);
 }
-.container main .categMain > section table tbody tr:not(:last-child) td {
+.container main .categMain > div > section table tbody tr:not(:last-child) td {
   border-bottom: 1px solid rgba(161, 163, 171, 0.631372549);
 }
-.container main .categMain > section table tbody tr td:last-child {
+.container main .categMain > div > section table tbody tr td:last-child {
   display: flex;
   justify-content: center;
   gap: 12px;
 }
-.container main .categMain > section table tbody tr td:last-child button {
+.container main .categMain > div > section table tbody tr td:last-child button {
   border: none;
   border-radius: 8px;
   padding: 8px 16px;
   font-size: 14px;
   color: #fff;
   cursor: pointer;
+  background-color: #F26430;
 }
-.container main .categMain > section table tbody tr td:last-child button[data-action=edit] {
+.container main .categMain > div > section table tbody tr td:last-child button[data-action=edit] {
   background: #F26430;
 }
-.container main .categMain > section table tbody tr td:last-child button[data-action=delete] {
+.container main .categMain > div > section table tbody tr td:last-child button[data-action=delete] {
   background: #F26430;
 }
-.container main .categMain hr {
+.container main .categMain > div hr {
   border: none;
   height: 1px;
   width: 100%;
@@ -1607,8 +1686,10 @@ button {
 
 .container {
   width: 100%;
-  height: 100vh;
+  display: flex;
   flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
 }
 .container > header {
   padding: 37px 72px 24px;
@@ -1616,12 +1697,13 @@ button {
   display: flex;
   justify-content: space-between;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.07);
-  height: 50px;
-  margin-bottom: 50px;
+  height: 100px;
 }
 .container main {
   background-color: #fff;
   display: flex;
   justify-content: space-between;
-  height: 100%;
+  flex: 1;
+  overflow: hidden;
+  height: auto;
 }/*# sourceMappingURL=main.css.map */

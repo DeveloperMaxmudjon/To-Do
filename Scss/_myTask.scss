@@ -5,27 +5,30 @@
             display: flex;
             gap: 20px;
             width: 100%;
-            padding: 0px 40px 20px;
+            height: 100%; // Fill height
+            overflow: hidden; // Prevent main scroll
+            padding: 40px 40px 30px;
 
-            > div {
+            >div {
                 width: 50%;
+                height: 100%; // Fill parent height
                 border: 1px solid #A1A3ABA1;
                 border-radius: 16px;
                 padding: 20px 30px;
                 display: flex;
                 flex-direction: column;
                 gap: 22px;
+                overflow: scroll;
 
-                > span {
+                >span {
                     font-size: 16px;
                     font-weight: 600;
                     padding: 5px 0;
                     border-bottom: 2px solid #0225FF;
                 }
 
-                > div {
+                >div {
                     max-width: 100%;
-                    height: 150px;
                     border-radius: 14px;
                     display: flex;
                     gap: 15px;
@@ -37,12 +40,12 @@
                         color: #0225FF;
                     }
 
-                    > span {
+                    >span {
                         color: #A1A3AB;
                         width: 6%;
                     }
 
-                    > div {
+                    >div {
                         width: 88%;
                         display: flex;
                         flex-direction: column;
@@ -54,7 +57,7 @@
                             font-weight: 600;
                         }
 
-                        > span {
+                        >span {
                             display: flex;
                             justify-content: space-between;
                             align-items: center;
@@ -84,14 +87,14 @@
                 max-width: 100%;
                 padding: 15px 19px;
 
-                > div {
+                >div {
                     display: flex;
                     flex-direction: column;
                     border: none;
                     height: 100%;
                     max-width: 100%;
 
-                    > span {
+                    >span {
                         display: flex;
                         width: 100%;
                         gap: 15px;
@@ -106,7 +109,7 @@
                             flex-direction: column;
                             justify-content: space-between;
 
-                            > span {
+                            >span {
                                 display: flex;
                                 gap: 5px;
                             }
@@ -117,12 +120,12 @@
                         }
                     }
 
-                    > div {
+                    >div {
                         width: 100%;
                         margin-top: 30px;
                     }
 
-                    > .taskActions {
+                    >.taskActions {
                         display: flex;
                         gap: 10px;
                         justify-content: end;

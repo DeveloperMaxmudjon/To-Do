@@ -5,11 +5,12 @@
             max-height: 100%;
             display: flex;
             align-items: flex-end;
+
             .sidbar {
                 width: 100%;
-                min-height: 100%;
+                height: calc(100% - 40px);
                 background-color: #FF6767;
-                padding: 0 22px 0px;
+                padding: 0 22px 30px;
                 display: flex;
                 flex-direction: column;
                 gap: 18px;
@@ -22,6 +23,7 @@
                     display: flex;
                     flex-direction: column;
                     gap: 18px;
+
                     .userNav {
                         display: flex;
                         flex-direction: column;
@@ -29,7 +31,7 @@
                         text-align: center;
                         align-items: center;
                         gap: 3px;
-                        margin-top: -50px;
+                        margin-top: -30px;
 
                         #userImg {
                             border: 1px solid white;
@@ -38,6 +40,7 @@
                             display: flex;
                             justify-content: center;
                             align-items: center;
+                            z-index: 1000000000;
                         }
 
                         #userNames {
@@ -81,7 +84,7 @@
 
                             &.activeNav {
                                 background-color: #fff;
-                                
+
                                 a {
                                     color: #FF6767;
                                 }
@@ -99,7 +102,7 @@
                     }
                 }
 
-                > span {
+                >span {
                     display: flex;
                     gap: 6px;
                     align-items: center;

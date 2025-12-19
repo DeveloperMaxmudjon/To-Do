@@ -1,21 +1,21 @@
-let listStatus        = 0;
+let listStatus = 0;
 
-let taskNum           = 0;
-let completedCount    = 0;
-let inProgressCount   = 0;
-let notStartedCount   = 0;
+let taskNum = 0;
+let completedCount = 0;
+let inProgressCount = 0;
+let notStartedCount = 0;
 
-let taskId            = 0;
-let taskListGroup     = [];
+let taskId = 0;
+let taskListGroup = [];
 
 let activeVitalTaskId = null;
-let activeMyTaskId    = null;
+let activeMyTaskId = null;
 
-let editMode          = false;
-let editingTaskId     = null;
+let editMode = false;
+let editingTaskId = null;
 
 const today = new Date();
-const day   = today.getDate();
+const day = today.getDate();
 const month = today.toLocaleString('en-US', { month: 'long' });
 const todayEl = document.getElementById("today-date");
 if (todayEl) {
@@ -30,52 +30,184 @@ imgItems.forEach((item) => {
     });
 });
 
-const priorityCheckboxes = document.querySelectorAll('.taskPriority ul li input[type="checkbox"]');
-priorityCheckboxes.forEach(cb => {
-    cb.addEventListener("change", () => {
-        if (cb.checked) {
-            priorityCheckboxes.forEach(other => {
-                if (other !== cb) other.checked = false;
-            });
-        }
-    });
-});
+const priorityListContainer = document.querySelector('.taskPriority ul');
+const statusListContainer = document.querySelector('.taskStatus ul');
 
-const statusCheckboxes = document.querySelectorAll('.taskStatus ul li input[type="checkbox"]');
-statusCheckboxes.forEach(cb => {
-    cb.addEventListener("change", () => {
-        if (cb.checked) {
-            statusCheckboxes.forEach(other => {
-                if (other !== cb) other.checked = false;
+function getColorForName(name) {
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) {
+        hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const hue = Math.abs(hash % 360);
+    return `hsl(${hue}, 70%, 50%)`;
+}
+
+function syncTaskOptions() {
+    function createListItem(name) {
+        const li = document.createElement("li");
+        li.style.display = "flex";
+        li.style.alignItems = "center";
+
+        const circle = document.createElement("span");
+        circle.style.width = "7px";
+        circle.style.height = "7px";
+        circle.style.borderRadius = "50%";
+        circle.style.display = "inline-block";
+        circle.style.backgroundColor = getColorForName(name);
+        circle.style.marginRight = "8px";
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.style.marginLeft = "10px";
+
+        li.appendChild(circle);
+        li.appendChild(document.createTextNode(name + " "));
+        li.appendChild(checkbox);
+
+        return li;
+    }
+
+    if (priorityListContainer) {
+        priorityListContainer.innerHTML = "";
+        const priorityRows = document.querySelectorAll('#priorityBody tr');
+        priorityRows.forEach(row => {
+            const nameCell = row.querySelector("td:nth-child(2)");
+            if (nameCell) {
+                const priorityName = nameCell.textContent.trim();
+                const li = createListItem(priorityName);
+                priorityListContainer.appendChild(li);
+            }
+        });
+    }
+
+    if (statusListContainer) {
+        statusListContainer.innerHTML = "";
+        const statusRows = document.querySelectorAll('#statusBody tr');
+        statusRows.forEach(row => {
+            const nameCell = row.querySelector("td:nth-child(2)");
+            if (nameCell) {
+                const statusName = nameCell.textContent.trim();
+                const li = createListItem(statusName);
+                statusListContainer.appendChild(li);
+            }
+        });
+    }
+
+    const dynamicFieldsContainer = document.getElementById("dynamicTaskFields");
+    if (dynamicFieldsContainer) {
+        dynamicFieldsContainer.innerHTML = "";
+
+        const customSections = document.querySelectorAll('#categHero section[data-category-id]');
+        customSections.forEach(sec => {
+            const categoryTitle = sec.querySelector('header h3') ? sec.querySelector('header h3').textContent : "Category";
+            const categoryId = sec.dataset.categoryId;
+
+            const div = document.createElement("div");
+            div.className = "taskDynamicCategory";
+            div.dataset.dynamicCategoryId = categoryId;
+            div.dataset.dynamicCategoryTitle = categoryTitle;
+            div.style.display = "flex";
+            div.style.flexDirection = "column";
+            div.style.gap = "10px";
+
+            const h1 = document.createElement("h1");
+            h1.textContent = categoryTitle;
+            h1.style.fontSize = "14px";
+            h1.style.fontWeight = "600";
+
+            const ul = document.createElement("ul");
+            ul.style.display = "flex";
+            ul.style.gap = "55px";
+            ul.style.flexWrap = "wrap";
+
+            const rows = sec.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const nameCell = row.querySelector("td:nth-child(2)");
+                if (nameCell) {
+                    const itemName = nameCell.textContent.trim();
+                    const li = createListItem(itemName);
+                    ul.appendChild(li);
+                }
             });
-        }
+
+            div.appendChild(h1);
+            div.appendChild(ul);
+            dynamicFieldsContainer.appendChild(div);
+        });
+    }
+
+    attachCheckboxListeners();
+}
+
+function attachCheckboxListeners() {
+    const priorityCheckboxes = document.querySelectorAll('.taskPriority ul li input[type="checkbox"]');
+    priorityCheckboxes.forEach(cb => {
+        cb.addEventListener("change", () => {
+            if (cb.checked) {
+                priorityCheckboxes.forEach(other => {
+                    if (other !== cb) other.checked = false;
+                });
+            }
+        });
     });
+
+    const statusCheckboxes = document.querySelectorAll('.taskStatus ul li input[type="checkbox"]');
+    statusCheckboxes.forEach(cb => {
+        cb.addEventListener("change", () => {
+            if (cb.checked) {
+                statusCheckboxes.forEach(other => {
+                    if (other !== cb) other.checked = false;
+                });
+            }
+        });
+    });
+
+    const dynamicDivs = document.querySelectorAll('#dynamicTaskFields > div');
+    dynamicDivs.forEach(div => {
+        const cbs = div.querySelectorAll('ul li input[type="checkbox"]');
+        cbs.forEach(cb => {
+            cb.addEventListener("change", () => {
+                if (cb.checked) {
+                    cbs.forEach(other => {
+                        if (other !== cb) other.checked = false;
+                    });
+                }
+            });
+        });
+    });
+}
+
+syncTaskOptions();
+
+document.addEventListener("taskCategoriesUpdated", function () {
+    syncTaskOptions();
 });
 
 function resetTaskForm() {
     const titleInput = document.getElementById("title");
-    const dateInput  = document.getElementById("dateGet");
-    const descInput  = document.getElementById("descGet");
+    const dateInput = document.getElementById("dateGet");
+    const descInput = document.getElementById("descGet");
 
     if (titleInput) titleInput.value = "";
-    if (dateInput)  dateInput.value  = "";
-    if (descInput)  descInput.value  = "";
+    if (dateInput) dateInput.value = "";
+    if (descInput) descInput.value = "";
 
     const titleErr = document.getElementById("titleNotif");
-    const dateErr  = document.getElementById("dateNotif");
-    const descErr  = document.getElementById("descNotif");
+    const dateErr = document.getElementById("dateNotif");
+    const descErr = document.getElementById("descNotif");
 
     if (titleErr) titleErr.textContent = "";
-    if (dateErr)  dateErr.textContent  = "";
-    if (descErr)  descErr.textContent  = "";
+    if (dateErr) dateErr.textContent = "";
+    if (descErr) descErr.textContent = "";
 
-    priorityCheckboxes.forEach(cb => cb.checked = false);
-    statusCheckboxes.forEach(cb => cb.checked = false);
+    const allCbs = document.querySelectorAll('.taskPriority ul li input[type="checkbox"], .taskStatus ul li input[type="checkbox"], #dynamicTaskFields input[type="checkbox"]');
+    allCbs.forEach(cb => cb.checked = false);
+
     imgItems.forEach(el => el.classList.remove("selected"));
 }
 
 function openCreateTaskModal() {
-    editMode      = false;
+    editMode = false;
     editingTaskId = null;
     resetTaskForm();
     const menu = document.getElementById("taskMenu");
@@ -87,17 +219,17 @@ function closeTaskModal() {
     if (menu) menu.style.top = "-1000px";
 }
 
-const addTaskBtn    = document.getElementById("addTask");
+const addTaskBtn = document.getElementById("addTask");
 const removeTaskBtn = document.getElementById("removeTaskMenu");
 
 if (addTaskBtn) {
-    addTaskBtn.onclick = function() {
+    addTaskBtn.onclick = function () {
         openCreateTaskModal();
     };
 }
 
 if (removeTaskBtn) {
-    removeTaskBtn.onclick = function() {
+    removeTaskBtn.onclick = function () {
         closeTaskModal();
     };
 }
@@ -110,48 +242,51 @@ function getPriorityFromForm() {
         priority = "";
         return "";
     }
-    const id = checked.parentElement.id;
-
-    if (id === "extrime") {
-        priority = "Extreme";
-    } else if (id === "modern") {
-        priority = "Moderate";
-    } else if (id === "low") {
-        priority = "Low";
-    } else {
-        priority = "";
-    }
-    return priority;
+    return checked.parentElement.textContent.trim();
 }
 
 function getCircleColor(priorityValue) {
-    if (priorityValue === "Extreme")  return "#FF3B30";
-    if (priorityValue === "Moderate") return "#3ABEFF";
-    if (priorityValue === "Low")      return "#05A301";
-    return "#000";
+    return getColorForName(priorityValue);
 }
 
 function getStatusFromForm() {
     const checked = document.querySelector('.taskStatus ul li input[type="checkbox"]:checked');
     if (!checked) return "Not Started";
-    const id = checked.parentElement.id;
-    if (id === "startValue")   return "Not Started";
-    if (id === "ProgresVolue") return "In Progress";
-    if (id === "lowVolue")     return "Completed";
-    return "Not Started";
+    return checked.parentElement.textContent.trim();
 }
 
 function getStatusColor(status) {
-    switch (status) {
-        case "Not Started":
-            return "#F21E1E";
-        case "In Progress":
-            return "#0225FF";
-        case "Completed":
-            return "#05A301";
-        default:
-            return "#A1A3AB";
+    return getColorForName(status);
+}
+
+function getCustomFieldsFromForm() {
+    const fields = {};
+    const dynamicDivs = document.querySelectorAll('#dynamicTaskFields > div');
+    dynamicDivs.forEach(div => {
+        const title = div.dataset.dynamicCategoryTitle;
+        const checked = div.querySelector('ul li input[type="checkbox"]:checked');
+        if (checked && title) {
+            fields[title] = checked.parentElement.textContent.trim();
+        }
+    });
+    return fields;
+}
+
+function renderCustomFieldsInDetails(task) {
+    if (!task.customFields) return "";
+    let html = "";
+    for (const [key, value] of Object.entries(task.customFields)) {
+        const color = getColorForName(value);
+        html += `
+            <span>
+                ${key} :
+                <p style="color:${color};">
+                    ${value}
+                </p>
+            </span>
+        `;
     }
+    return html;
 }
 
 function isVitalTask(task) {
@@ -167,14 +302,14 @@ function isVitalTask(task) {
 }
 
 function updateStats() {
-    const completedDB   = document.getElementById("completedDB");
+    const completedDB = document.getElementById("completedDB");
     const completedText = document.getElementById("completedText");
 
-    const progressDB    = document.getElementById("progressDB");
-    const progresText   = document.getElementById("progresText");
+    const progressDB = document.getElementById("progressDB");
+    const progresText = document.getElementById("progresText");
 
-    const stratedDB     = document.getElementById("stratedDB");
-    const stratedText   = document.getElementById("stratedText");
+    const stratedDB = document.getElementById("stratedDB");
+    const stratedText = document.getElementById("stratedText");
 
     if (!completedDB || !completedText || !progressDB || !progresText || !stratedDB || !stratedText) {
         return;
@@ -189,7 +324,7 @@ function updateStats() {
 
         const percent = (count / taskNum) * 100;
         const rounded = Math.round(percent);
-        const deg     = (percent / 100) * 360;
+        const deg = (percent / 100) * 360;
 
         circleEl.style.background = `conic-gradient(
             ${color} 0deg ${deg}deg,
@@ -200,24 +335,24 @@ function updateStats() {
     }
 
     if (taskNum === 0) {
-        applyDonut(completedDB, completedText,   0, "#05A301");
-        applyDonut(progressDB,  progresText,     0, "#0225FF");
-        applyDonut(stratedDB,   stratedText,     0, "#F21E1E");
+        applyDonut(completedDB, completedText, 0, "#05A301");
+        applyDonut(progressDB, progresText, 0, "#0225FF");
+        applyDonut(stratedDB, stratedText, 0, "#F21E1E");
         return;
     }
 
-    applyDonut(completedDB, completedText, completedCount,   "#05A301");
-    applyDonut(progressDB,  progresText,   inProgressCount,  "#0225FF");
-    applyDonut(stratedDB,   stratedText,   notStartedCount,  "#F21E1E");
+    applyDonut(completedDB, completedText, completedCount, "#05A301");
+    applyDonut(progressDB, progresText, inProgressCount, "#0225FF");
+    applyDonut(stratedDB, stratedText, notStartedCount, "#F21E1E");
 }
 
-const compeltedList     = document.getElementById("compeltedList");
-const taskList          = document.getElementById("taskList");
-const taskListTwo       = document.getElementById("taskListTwo");
-const vitalTaskList     = document.getElementById("vitalTaskList");
-const myTaskList        = document.getElementById("myTaskList");
-const vitalTaskDetails  = document.querySelector(".taskInf");     // right panel on Vital screen
-const myTaskDetails     = document.querySelector(".myTaskInf");   // right panel on My Task screen
+const compeltedList = document.getElementById("compeltedList");
+const taskList = document.getElementById("taskList");
+const taskListTwo = document.getElementById("taskListTwo");
+const vitalTaskList = document.getElementById("vitalTaskList");
+const myTaskList = document.getElementById("myTaskList");
+const vitalTaskDetails = document.querySelector(".taskInf");
+const myTaskDetails = document.querySelector(".myTaskInf");
 
 function shortDesc(desc) {
     if (!desc) return "";
@@ -233,7 +368,7 @@ function formatDisplayDate(isoDate) {
 
 function buildTaskCardHTML(task) {
     const displayDate = formatDisplayDate(task.date);
-    const finalDesc   = shortDesc(task.desc);
+    const finalDesc = shortDesc(task.desc);
 
     return `
         <div class="taskItem" data-task-id="${task.id}" style="border: 1px solid #A1A3ABA1;">
@@ -265,11 +400,11 @@ function buildTaskCardHTML(task) {
 }
 
 function renderDashboardLists() {
-    if (taskList)      taskList.innerHTML      = "";
-    if (taskListTwo)   taskListTwo.innerHTML   = "";
+    if (taskList) taskList.innerHTML = "";
+    if (taskListTwo) taskListTwo.innerHTML = "";
     if (compeltedList) compeltedList.innerHTML = "";
 
-    let columnToggle = 0; // 0 -> taskList, 1 -> taskListTwo
+    let nonCompletedCount = 0;
 
     taskListGroup.forEach(task => {
         const cardHTML = buildTaskCardHTML(task);
@@ -279,12 +414,17 @@ function renderDashboardLists() {
                 compeltedList.insertAdjacentHTML("beforeend", cardHTML);
             }
         } else {
-            if (columnToggle === 0) {
-                if (taskList) taskList.insertAdjacentHTML("beforeend", cardHTML);
-                columnToggle = 1;
-            } else {
+            nonCompletedCount++;
+
+            // Logic: 
+            // 1st task -> taskList
+            // 2nd task -> taskListTwo
+            // 3rd+ task -> taskList
+
+            if (nonCompletedCount === 2) {
                 if (taskListTwo) taskListTwo.insertAdjacentHTML("beforeend", cardHTML);
-                columnToggle = 0;
+            } else {
+                if (taskList) taskList.insertAdjacentHTML("beforeend", cardHTML);
             }
         }
     });
@@ -293,9 +433,9 @@ function renderDashboardLists() {
 function renderVitalTaskDetails(task) {
     if (!vitalTaskDetails || !task) return;
 
-    const statusColor   = task.statusColor   || getStatusColor(task.status);
+    const statusColor = task.statusColor || getStatusColor(task.status);
     const priorityColor = task.priorityColor || task.circleColor || "#000";
-    const displayDate   = formatDisplayDate(task.date);
+    const displayDate = formatDisplayDate(task.date);
 
     vitalTaskDetails.innerHTML = `
         <div class="taskItem" id="task-${task.id}">
@@ -321,6 +461,8 @@ function renderVitalTaskDetails(task) {
                     <span>
                         Created on: ${displayDate}
                     </span>
+
+                    ${renderCustomFieldsInDetails(task)}
                 </div>
             </span>
 
@@ -410,9 +552,9 @@ function renderVitalList() {
 function renderMyTaskDetails(task) {
     if (!myTaskDetails || !task) return;
 
-    const statusColor   = task.statusColor   || getStatusColor(task.status);
+    const statusColor = task.statusColor || getStatusColor(task.status);
     const priorityColor = task.priorityColor || task.circleColor || "#000";
-    const displayDate   = formatDisplayDate(task.date);
+    const displayDate = formatDisplayDate(task.date);
 
     myTaskDetails.innerHTML = `
         <div class="taskItem" id="mytask-${task.id}">
@@ -438,6 +580,8 @@ function renderMyTaskDetails(task) {
                     <span>
                         Created on: ${displayDate}
                     </span>
+                
+                    ${renderCustomFieldsInDetails(task)}
                 </div>
             </span>
 
@@ -544,34 +688,50 @@ function handleDeleteTask(taskIdToDelete) {
 function openEditTaskModal(task) {
     if (!task) return;
 
-    editMode      = true;
+    editMode = true;
     editingTaskId = task.id;
 
     resetTaskForm();
 
     const titleInput = document.getElementById("title");
-    const dateInput  = document.getElementById("dateGet");
-    const descInput  = document.getElementById("descGet");
+    const dateInput = document.getElementById("dateGet");
+    const descInput = document.getElementById("descGet");
 
     if (titleInput) titleInput.value = task.title;
-    if (dateInput)  dateInput.value  = task.date;  // ISO format "yyyy-MM-dd"
-    if (descInput)  descInput.value  = task.desc;
+    if (dateInput) dateInput.value = task.date;
+    if (descInput) descInput.value = task.desc;
 
-    priorityCheckboxes.forEach(cb => {
+    const allPriorityCbs = document.querySelectorAll('.taskPriority ul li input[type="checkbox"]');
+    allPriorityCbs.forEach(cb => {
         cb.checked = false;
-        const liId = cb.parentElement.id;
-        if (task.priority === "Extreme"  && liId === "extrime") cb.checked = true;
-        if (task.priority === "Moderate" && liId === "modern")  cb.checked = true;
-        if (task.priority === "Low"      && liId === "low")     cb.checked = true;
+        const text = cb.parentElement.textContent.trim();
+        if (text === task.priority) cb.checked = true;
     });
 
-    statusCheckboxes.forEach(cb => {
+    const allStatusCbs = document.querySelectorAll('.taskStatus ul li input[type="checkbox"]');
+    allStatusCbs.forEach(cb => {
         cb.checked = false;
-        const liId = cb.parentElement.id;
-        if (task.status === "Not Started" && liId === "startValue")   cb.checked = true;
-        if (task.status === "In Progress" && liId === "ProgresVolue") cb.checked = true;
-        if (task.status === "Completed"   && liId === "lowVolue")     cb.checked = true;
+        const text = cb.parentElement.textContent.trim();
+        if (text === task.status) cb.checked = true;
     });
+
+    // Set Dynamic Fields
+    if (task.customFields) {
+        const dynamicDivs = document.querySelectorAll('#dynamicTaskFields > div');
+        dynamicDivs.forEach(div => {
+            const title = div.dataset.dynamicCategoryTitle;
+            const val = task.customFields[title];
+            if (val) {
+                const cbs = div.querySelectorAll('ul li input[type="checkbox"]');
+                cbs.forEach(cb => {
+                    cb.checked = false;
+                    if (cb.parentElement.textContent.trim() === val) {
+                        cb.checked = true;
+                    }
+                });
+            }
+        });
+    }
 
     if (task.imgSrc) {
         imgItems.forEach(span => {
@@ -592,20 +752,20 @@ const createTaskBtn = document.getElementById("createTaskBtn");
 if (createTaskBtn) {
     createTaskBtn.onclick = function () {
         const titleEl = document.getElementById("title");
-        const dateEl  = document.getElementById("dateGet");
-        const descEl  = document.getElementById("descGet");
+        const dateEl = document.getElementById("dateGet");
+        const descEl = document.getElementById("descGet");
 
         const titleValue = titleEl ? titleEl.value.trim() : "";
-        const dateValue  = dateEl  ? dateEl.value.trim()  : "";
-        const descValue  = descEl  ? descEl.value.trim()  : "";
+        const dateValue = dateEl ? dateEl.value.trim() : "";
+        const descValue = descEl ? descEl.value.trim() : "";
 
         const titleErr = document.getElementById("titleNotif");
-        const dateErr  = document.getElementById("dateNotif");
-        const descErr  = document.getElementById("descNotif");
+        const dateErr = document.getElementById("dateNotif");
+        const descErr = document.getElementById("descNotif");
 
         if (titleErr) titleErr.textContent = "";
-        if (dateErr)  dateErr.textContent  = "";
-        if (descErr)  descErr.textContent  = "";
+        if (dateErr) dateErr.textContent = "";
+        if (descErr) descErr.textContent = "";
 
         let valid = true;
 
@@ -626,13 +786,13 @@ if (createTaskBtn) {
 
         const createdOn = dateValue;
 
-        const taskPriority     = getPriorityFromForm();
-        const circleColor      = getCircleColor(taskPriority);
-        const taskStatus       = getStatusFromForm();
-        const taskStatusColor  = getStatusColor(taskStatus);
+        const taskPriority = getPriorityFromForm();
+        const circleColor = getCircleColor(taskPriority);
+        const taskStatus = getStatusFromForm();
+        const taskStatusColor = getStatusColor(taskStatus);
 
         const selectedImg = document.querySelector('.taskImg div span.selected img');
-        const imgSrc      = selectedImg ? selectedImg.getAttribute('src') : "";
+        const imgSrc = selectedImg ? selectedImg.getAttribute('src') : "";
 
         if (!editMode) {
             const newTask = {
@@ -643,17 +803,18 @@ if (createTaskBtn) {
                 priority: taskPriority,
                 circleColor: circleColor,
                 status: taskStatus,
+                statusColor: taskStatusColor,
                 imgSrc: imgSrc,
                 priorityColor: circleColor,
-                statusColor: taskStatusColor
+                customFields: getCustomFieldsFromForm()
             };
 
             taskListGroup.push(newTask);
 
             taskNum++;
-            if (newTask.status === "Completed")      completedCount++;
+            if (newTask.status === "Completed") completedCount++;
             else if (newTask.status === "In Progress") inProgressCount++;
-            else                                      notStartedCount++;
+            else notStartedCount++;
 
             taskId++;
         } else {
@@ -661,31 +822,32 @@ if (createTaskBtn) {
             if (idx === -1) {
                 console.warn("Editing task not found:", editingTaskId);
             } else {
-                const task      = taskListGroup[idx];
+                const task = taskListGroup[idx];
                 const oldStatus = task.status;
 
-                task.title         = titleValue;
-                task.desc          = descValue;
-                task.date          = createdOn;
-                task.priority      = taskPriority;
-                task.circleColor   = circleColor;
+                task.title = titleValue;
+                task.desc = descValue;
+                task.date = createdOn;
+                task.priority = taskPriority;
+                task.circleColor = circleColor;
                 task.priorityColor = circleColor;
-                task.status        = taskStatus;
-                task.statusColor   = taskStatusColor;
-                task.imgSrc        = imgSrc;
+                task.status = taskStatus;
+                task.statusColor = taskStatusColor;
+                task.imgSrc = imgSrc;
+                task.customFields = getCustomFieldsFromForm();
 
                 if (oldStatus !== task.status) {
-                    if (oldStatus === "Completed")         completedCount  = Math.max(0, completedCount - 1);
-                    else if (oldStatus === "In Progress")  inProgressCount = Math.max(0, inProgressCount - 1);
-                    else                                   notStartedCount = Math.max(0, notStartedCount - 1);
+                    if (oldStatus === "Completed") completedCount = Math.max(0, completedCount - 1);
+                    else if (oldStatus === "In Progress") inProgressCount = Math.max(0, inProgressCount - 1);
+                    else notStartedCount = Math.max(0, notStartedCount - 1);
 
-                    if (task.status === "Completed")         completedCount++;
-                    else if (task.status === "In Progress")  inProgressCount++;
-                    else                                     notStartedCount++;
+                    if (task.status === "Completed") completedCount++;
+                    else if (task.status === "In Progress") inProgressCount++;
+                    else notStartedCount++;
                 }
             }
 
-            editMode      = false;
+            editMode = false;
             editingTaskId = null;
         }
 

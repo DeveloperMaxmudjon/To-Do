@@ -5,11 +5,11 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: -1500px;          
+    top: -1500px;
     background-color: #000000BD;
     transition: .5s;
 
-    > div {
+    >div {
         width: 900px;
         background-color: #fff;
         margin: 0 auto;
@@ -21,7 +21,7 @@
         justify-content: space-between;
         gap: 25px;
 
-        > span {
+        >span {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,7 +42,7 @@
             }
         }
 
-        > div {
+        >div {
             border: 1px solid #A1A3ABA3;
             height: 100%;
             padding: 15px;
@@ -50,7 +50,7 @@
             flex-direction: column;
             gap: 10px;
 
-            > span {
+            >span {
                 display: flex;
                 flex-direction: column;
 
@@ -98,23 +98,11 @@
                         position: relative;
                         font-size: 14px;
 
-                        &#extrime::before {
-                            background: #FF3B30; 
-                        }
-                        &#modern::before {
-                            background: #3ABEFF; 
-                        }
-                        &#low::before {
-                            background: #05A301; 
-                        }
-
-                        &::before {
-                            content: "";
-                            width: 7px;
-                            height: 7px;
-                            border-radius: 50%;
-                            display: inline-block;
-                        }
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        position: relative;
+                        font-size: 14px;
 
                         input[type="checkbox"] {
                             appearance: none;
@@ -147,6 +135,7 @@
                     }
                 }
             }
+
             .taskStatus {
                 display: flex;
                 flex-direction: column;
@@ -169,23 +158,11 @@
                         position: relative;
                         font-size: 14px;
 
-                        &#startValue::before {
-                            background: #FF3B30; 
-                        }
-                        &#ProgresVolue::before {
-                            background: #0225FF; 
-                        }
-                        &#lowVolue::before {
-                            background: #05A301; 
-                        }
-
-                        &::before {
-                            content: "";
-                            width: 7px;
-                            height: 7px;
-                            border-radius: 50%;
-                            display: inline-block;
-                        }
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        position: relative;
+                        font-size: 14px;
 
                         input[type="checkbox"] {
                             appearance: none;
@@ -305,7 +282,7 @@
             }
         }
 
-        > button {
+        >button {
             width: 90px;
             color: white;
             padding: 8px 25px;
@@ -323,7 +300,6 @@
     gap: 16px;
     padding: 16px;
     border-radius: 14px;
-    margin-bottom: 12px;
     align-items: flex-start;
 }
 
