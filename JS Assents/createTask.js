@@ -416,10 +416,10 @@ function renderDashboardLists() {
         } else {
             nonCompletedCount++;
 
-            // Logic: 
-            // 1st task -> taskList
-            // 2nd task -> taskListTwo
-            // 3rd+ task -> taskList
+            
+            
+            
+            
 
             if (nonCompletedCount === 2) {
                 if (taskListTwo) taskListTwo.insertAdjacentHTML("beforeend", cardHTML);
@@ -715,7 +715,7 @@ function openEditTaskModal(task) {
         if (text === task.status) cb.checked = true;
     });
 
-    // Set Dynamic Fields
+    
     if (task.customFields) {
         const dynamicDivs = document.querySelectorAll('#dynamicTaskFields > div');
         dynamicDivs.forEach(div => {

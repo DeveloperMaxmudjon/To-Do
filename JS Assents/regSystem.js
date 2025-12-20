@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
     registerBlock.style.display = "none"
     mainContainer.style.display = "flex";
 
-    // registerBlock.style.display = "flex";
-    // loginBlock.style.display = "none";
-    // mainContainer.style.display = "none";
+    
+    
+    
 
     if (signInMenu && registerBlock && loginBlock) {
         signInMenu.addEventListener("click", function (e) {

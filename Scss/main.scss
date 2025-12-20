@@ -39,8 +39,8 @@ button {
         background-color: #fff;
         display: flex;
         justify-content: space-between;
-        flex: 1; // Take remaining height
-        overflow: hidden; // Prevent main scroll
-        height: auto; // Reset height 100%
+        flex: 1; 
+        overflow: hidden; 
+        height: auto; 
     }
 }
