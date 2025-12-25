@@ -17,7 +17,7 @@
         <header>
             <h1 id="heading"></h1>
             <div class="search">
-                <input type="text" placeholder="Search your task here...">
+                <input type="text" id="searchInput" placeholder="Search your task here...">
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-search" viewBox="0 0 16 16">
@@ -25,6 +25,7 @@
                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                     </svg>
                 </button>
+                <div id="searchResults" class="search-results"></div>
             </div>
             <span>
                 <button>
@@ -291,20 +292,56 @@
             </section>
 
             <section class="vitalTask" id="vitalTaskMenu">
-                <div id="vitalTaskList">
+                <div>
                     <span>
-                        Vital Tasks
+                        <div class="vitalTaskHeader">
+                            <p>
+                                Vital Tasks
+                            </p>
+                            <button id="filter" class="btn filter-btn">
+                                <span class="icon">
+                                    <svg viewBox="0 0 175 80" width="40" height="40">
+                                        <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                        <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                        <rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                    </svg>
+                                </span>
+                                <span class="text">Filter</span>
+                            </button>
+                        </div>
+                        <div class="filterGroup" style="display: none;">
+                        </div>
                     </span>
+                    <div id="vitalTaskList">
+                    </div>
                 </div>
                 <div class="taskInf">
                 </div>
             </section>
 
             <section class="myTask" id="myTaskMenu">
-                <div id="myTaskList">
+                <div>
                     <span>
-                        My Tasks
+                        <div class="vitalTaskHeader">
+                            <p>
+                                My Tasks
+                            </p>
+                            <button class="btn filter-btn">
+                                <span class="icon">
+                                    <svg viewBox="0 0 175 80" width="40" height="40">
+                                        <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                        <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                        <rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                    </svg>
+                                </span>
+                                <span class="text">Filter</span>
+                            </button>
+                        </div>
+                        <div class="filterGroup" style="display: none;">
+                        </div>
                     </span>
+                    <div id="myTaskList">
+                    </div>
                 </div>
                 <div class="myTaskInf">
 
@@ -437,6 +474,100 @@
                             </tbody>
                         </table>
                     </section>
+                </div>
+            </section>
+
+            <section class="settingsMain" id="settingsMenu" style="display: none;">
+                <div>
+                    <header>
+                        <h2>Account Information</h2>
+                        <a href="#" id="settingsBack">Go Back</a>
+                    </header>
+
+                    <div class="profile">
+                        <span>
+                            <img src="./Images/Ellipse 1.png" alt="Profile" id="settingsProfileImg">
+                        </span>
+                        <div>
+                            <h3 id="settingsName">Sundar Gurung</h3>
+                            <p id="settingsEmail">sundargurung360@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div id="userSettings">
+                        <form id="settingsForm">
+                            <span>
+                                <label for="setFirstName">First Name</label>
+                                <input type="text" id="setFirstName" placeholder="">
+                            </span>
+
+                            <span>
+                                <label for="setLastName">Last Name</label>
+                                <input type="text" id="setLastName" placeholder="">
+                            </span>
+
+                            <span>
+                                <label for="setEmail">Email Address</label>
+                                <input type="email" id="setEmail" placeholder="">
+                            </span>
+
+                            <span>
+                                <label for="setContact">Contact Number</label>
+                                <input type="tel" id="setContact" placeholder="">
+                            </span>
+
+                            <span>
+                                <label for="setPosition">Position</label>
+                                <input type="text" id="setPosition" placeholder="">
+                            </span>
+
+                            <div>
+                                <button type="button" id="updateInfoBtn">Update Info</button>
+                                <button type="button" id="changePassBtn">Change Password</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="changePasswordView" style="display: none;">
+                        <header>
+                            <h2>Change Password</h2>
+                            <a href="#" id="changePassBack">Go Back</a>
+                        </header>
+
+                        <div class="profile">
+                            <span>
+                                <img src="./Images/Ellipse 1.png" alt="Profile" id="changePassProfileImg">
+                            </span>
+                            <div>
+                                <h3 id="changePassName">Sundar Gurung</h3>
+                                <p id="changePassEmail">sundargurung360@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div id="passSettings" class="userSettings">
+                            <form id="changePassForm">
+                                <span>
+                                    <label for="currentPassword">Current Password</label>
+                                    <input type="password" id="currentPassword" placeholder="">
+                                </span>
+
+                                <span>
+                                    <label for="newPassword">New Password</label>
+                                    <input type="password" id="newPassword" placeholder="">
+                                </span>
+
+                                <span>
+                                    <label for="confirmNewPassword">Confirm Password</label>
+                                    <input type="password" id="confirmNewPassword" placeholder="">
+                                </span>
+
+                                <div>
+                                    <button type="button" id="updatePassBtn">Update Password</button>
+                                    <button type="button" id="cancelPassBtn">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
@@ -638,5 +769,7 @@
 <script src="./JS Assents/sidBar.js"></script>
 <script src="./JS Assents/createTask.js"></script>
 <script src="./JS Assents/categorieLogic.js"></script>
+<script src="./JS Assents/filterLogic.js"></script>
+<script src="./JS Assents/searchLogic.js"></script>
 
 </html>

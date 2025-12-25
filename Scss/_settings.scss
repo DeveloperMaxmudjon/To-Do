@@ -1,0 +1,335 @@
+.settingsMain {
+    width: 100%;
+    height: calc(100% - 70px);
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    border: 1px solid #A1A3ABA1;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin: 40px 40px 30px;
+    max-height: 100%;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    >div {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #F66C3E;
+            margin-bottom: 20px;
+            flex-shrink: 0;
+
+            h2 {
+                font-size: 24px;
+                font-weight: 700;
+                color: #000;
+            }
+
+            a {
+                font-size: 16px;
+                font-weight: 600;
+                color: #000;
+                text-decoration: underline;
+            }
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-shrink: 0;
+
+            span {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                overflow: hidden;
+                display: block;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            div {
+                h3 {
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: #000;
+                    margin-bottom: 5px;
+                }
+
+                p {
+                    font-size: 14px;
+                    color: #333;
+                }
+            }
+        }
+
+        #userSettings {
+            background-color: #F8F9FD;
+            border: 1px solid #D2D2D2;
+            border-radius: 12px;
+            padding: 18px;
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                overflow-y: auto;
+                height: 100%;
+                padding-right: 10px;
+
+                span {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+
+                    label {
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: #000;
+                    }
+
+                    input {
+                        width: 60%;
+                        padding: 8px 10px;
+                        border: 1px solid #A1A3AB;
+                        border-radius: 8px;
+                        background-color: #F8F9FD;
+                        font-size: 14px;
+                        outline: none;
+                        transition: border-color 0.3s ease;
+
+                        &:focus {
+                            border-color: #F66C3E;
+                        }
+
+                        @media (max-width: 768px) {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                div {
+                    display: flex;
+                    gap: 20px;
+                    margin-top: 30px;
+                    padding-bottom: 10px;
+
+                    button {
+                        padding: 12px 24px;
+                        border-radius: 6px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        cursor: pointer;
+                        border: none;
+                        transition: opacity 0.3s ease;
+
+                        &:hover {
+                            opacity: 0.9;
+                        }
+
+                        &:first-child {
+                            background-color: #F66C3E;
+                            color: #fff;
+                        }
+
+                        &:last-child {
+                            background-color: #F66C3E;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+
+        #changePasswordView {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 0;
+                border-bottom: 1px solid #E0E0E0;
+                /* Light divider for the whole row */
+                margin-bottom: 20px;
+                flex-shrink: 0;
+                position: relative;
+
+                h2 {
+                    font-size: 24px;
+                    font-weight: 700;
+                    color: #000;
+                    position: relative;
+                    padding-bottom: 20px;
+                    /* Match header padding */
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -1px;
+                        /* Overlap the grey border */
+                        left: 0;
+                        width: 100%;
+                        height: 2px;
+                        background-color: #F66C3E;
+                    }
+                }
+
+                a {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #000;
+                    text-decoration: underline;
+                }
+            }
+
+            .profile {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                margin-bottom: 30px;
+                flex-shrink: 0;
+
+                span {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    display: block;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                div {
+                    h3 {
+                        font-size: 20px;
+                        font-weight: 700;
+                        color: #000;
+                        margin-bottom: 5px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        color: #333;
+                    }
+                }
+            }
+
+            .userSettings {
+                background-color: #F8F9FD;
+                border: 1px solid #D2D2D2;
+                border-radius: 12px;
+                padding: 40px;
+                /* Increased padding */
+                flex: 1;
+                min-height: 0;
+                display: flex;
+                flex-direction: column;
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    /* Increased gap */
+                    overflow-y: auto;
+                    height: 100%;
+                    padding-right: 10px;
+
+                    span {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+
+                        label {
+                            font-size: 14px;
+                            font-weight: 700;
+                            color: #000;
+                        }
+
+                        input {
+                            width: 100%;
+                            /* Full width as per design usually */
+                            max-width: 500px;
+                            /* Limit width */
+                            padding: 12px 16px;
+                            border: 1px solid #A1A3AB;
+                            border-radius: 8px;
+                            background-color: #fff;
+                            /* White input background */
+                            font-size: 14px;
+                            outline: none;
+                            transition: border-color 0.3s ease;
+
+                            &:focus {
+                                border-color: #F66C3E;
+                            }
+                        }
+                    }
+
+                    div {
+                        display: flex;
+                        gap: 20px;
+                        margin-top: 20px;
+
+                        button {
+                            padding: 12px 24px;
+                            border-radius: 6px;
+                            font-size: 16px;
+                            font-weight: 500;
+                            cursor: pointer;
+                            border: none;
+                            transition: opacity 0.3s ease;
+
+                            &:hover {
+                                opacity: 0.9;
+                            }
+
+                            &:first-child {
+                                // Update Password
+                                background-color: #F66C3E;
+                                color: #fff;
+                            }
+
+                            &:last-child {
+                                // Cancel
+                                background-color: #F66C3E;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
